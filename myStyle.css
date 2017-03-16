@@ -1,0 +1,310 @@
+body {
+    margin:0 auto;
+	padding: 0;
+	color: black;
+    background-color: white;
+	font: 15px Century Gothic; 
+    text-align: center; /* !!! */
+}
+
+#menuBackground {
+    background:#2f3036;
+    width:100%;
+    height:50px;
+    text-align: center;
+}
+#menuContainer {
+    text-align: center;
+}
+/*Strip the ul of padding and list styling*/
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+/*Create a horizontal list with spacing*/
+li {
+    display:inline-block;
+    vertical-align: top;
+    margin-right:1px;
+}
+
+/*Style for menu links*/
+li a {
+    display:block;
+    min-width:150px;
+    height:50px;
+    text-align:center;
+    line-height:50px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+    background:#2f3036;
+    text-decoration:none;
+    font-size: 1rem;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+    background:#F24B4B;
+	color:#fff;
+	-webkit-top:12px;
+}
+
+/*Style for dropdown links*/
+li:hover ul a {
+    background:#f3f3f3;
+    color:#2f3036;
+    height:40px;
+    line-height:40px
+}
+
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    background:#19c589;
+    color:#fff;
+	-webkit-top:12px;
+}
+
+/*Hide dropdown links until they are needed*/
+li ul {
+    position: absolute;
+    display:none;
+}lu ul
+
+/*Make dropdown links vertical*/
+li ul li {
+    display:block;
+}
+
+/*Prevent text wrapping*/
+li ul li a {
+    width:auto;
+    min-width:140px;
+    padding: 0 20px
+}
+
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden,.hidden:hover {
+    display:block;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-decoration:none;
+    color:#fff;
+    background:#19c589;
+    text-align:center;
+    padding:16px 0;
+    display:none;
+    width:100%; /* !important */
+}
+
+/*Hide checkbox*/
+input[type=checkbox] {
+    display:none
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu {
+    display:block;
+    margin:0 auto;
+}
+
+/*Responsive Styles*/
+@media screen and (max-width : 500px) {
+    /*Make dropdown links appear inline*/
+    ul {
+        position:static;
+        display:none;
+        white-space: initial;
+    }
+
+    /*Create vertical spacing*/
+    li {
+        margin-bottom:1px
+    }
+
+    /*Make all menu links full width*/
+    ul li,li a {
+        width:100%
+    }
+
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block
+    }
+}
+
+
+h1 {
+    color: #F24B4B;
+    margin-left: 20px;
+}
+
+h2 {
+    color: #499FB2;
+    margin-left: 0px;
+	margin-bottom: 6px;
+}
+
+p {
+	color: black;
+	align: center;
+	margin-left: auto; 
+	margin-right: auto; 
+}
+
+.monologue {
+	/* color = maroon; */
+	color = #F24B4B;
+	font: 40px Century Gothic; 
+	margin-left: 2cm; */
+}
+
+section {
+    width: 960px;
+	align: center;
+    /*height: 200px;
+    background: aqua; */
+    margin-left: auto; 
+	margin-right: auto; 
+    padding: 10px;
+}
+div#one {
+    width: 50%;
+    /* height: 200px;
+    background: red; */
+    float: left;
+}
+div#two {
+    margin-left: 15%;
+	float: right;
+    /* height: 200px;
+    background: black; */
+}
+
+div#inlineImage {
+	padding-bottom:50px;
+	margin: 0 auto;
+	align: center;
+}
+
+#container {
+    width: 800px;
+	align: center;
+    background-color: #e6e6e6;
+	padding: 10px;
+    /* margin: auto; */
+	margin: 0 auto 10px;
+}
+
+#devLogContainer {
+    width: 750px;
+	align: left;
+	text-align: left;
+    background-color: #e6e6e6;
+	padding: 30px;
+	padding-bottom: 10px;;
+	padding-top: 10px;
+    /* margin: auto; */
+	margin: 0 auto 10px;
+}
+
+.devLogTitle {
+	float:left;
+}
+
+.devLogDate {
+	float:right;
+}
+
+#clear {
+    clear: both;
+}
+
+div#bachelorLeft {
+	width: 300px;
+    float: left;
+    height: auto;
+}
+
+div#bachelorRight {
+    width: 430px;
+    float: right;
+    height: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	/* text-align: left; */
+}
+
+div#footer {
+	background-color: white;
+	height: 50px;
+}
+
+div#monologueContainer {
+	position: fixed;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: auto;
+	min-height: 100px;
+    width: 960px;
+	margin: 0 auto;
+	clear: both;
+	position: relative;
+	text-align: center;
+}
+
+div#leadingText {
+	position: fixed;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: auto;
+    width: 960px;
+	margin: 0 auto;
+	clear: both;
+	position: relative;
+}
+
+.quotes {
+	display: none;
+}​
+
+.special_button {text-decoration: none; color:red;}
+
+/* List styling */
+.featureList, .featureList ul {
+  margin-top: 0;
+  padding-left: 2em;
+  padding-bottom: 20px;
+  list-style-type: none;
+  display: block;
+}
+.featureList li {
+	display: block;
+	list-style-type: disc;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+.featureList li:before {
+  content: "\2022";
+  font-weight: bold;
+}
+.featureList li.tick:before {
+  content: "\2713";
+  color: darkgreen;
+}
+.featureList li.cross:before {
+  content: "\2717";
+  color: crimson;
+}

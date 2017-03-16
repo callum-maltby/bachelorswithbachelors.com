@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<title>Development Log</title>
+	<link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+
+	</script>
+</head>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<body>
+<div id="menuBackground">
+    <div id="menuContainer">
+    <label for="show-menu" class="show-menu">Show Menu</label>
+    <input type="checkbox" id="show-menu" role="button">
+            
+		<ul id="menu">
+			<li><a href="/">Home</a></li>
+			<li><a href="becomeBachelor.html">Become a Bachelor</a></li>
+			<li><a href="devLog.html">Development Log</a></li>
+        </ul>
+	</input>
+    </div>
+ </div>
+ 
+ 
+ <div id="leadingText">
+	<h1> Website Development Log </h1>
+	<p> This website is something I've thought about and ignored for a long time. I'm the sort of person who finds this concept really funny, so I'm planning on using that enthusiasm to spur me on to learn how to design websites. This testbench can (if desired) require a whole range of new skills, including dynamic design, mySQL, PHP and Javascript in addition to the html itself. </p>
+	<p> I hope to regularly log my progress, not only to clear things up for myself and to provide a record, but perhaps to help somebody else in the same position as me [read: somebody making a weird dating website after-hours]. Note that I'm coming at all this stuff fresh, so please don't take any of this as gospel. </p>
+	<p> I want to make it abundantly clear to everyone that I'm doing this for a laugh. This idea just grew out of a terrible pun, and I'm using it to learn how to make a rubbish website.  </p>
+	<p> Anyway, hope you have a great day, Cal.  </p>
+	<div id="clear"></div>
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Features to Implement</h2>
+	<p class="devLogDate">Updated 15/3/17</p>
+	<div id="clear"></div>
+
+	<p> There is a lot of work to get this thing up and running: </p>
+	
+	<ul class="featureList">
+		<li class="tick"> Start a development log</li>
+		<li class="tick"> Fade in monologue with jquery </li>
+		<li> Setup Git, no matter how much I don't want to  </li>
+		<li> Complete/improve the layout for each bachelor's "card"  </li>
+		<li> Think about how contact can be established. Perhaps a PASS/FAIL button can increase card size to include contact details  </li>
+		<li> Remove the horizontal offset in the monologue, and vertically centre it. Centre the header links for equal spacing too  </li>
+		<li> Set up mySQL database  </li>
+		<li> Allow form submission into this database  </li>
+		<li> Fill container elements via php get requests  </li>
+		<li> Dynamic rearranging/resizing for mobiles  </li>
+		<li class="cross"> Give up on this pointless venture</li>
+	  <!--
+		<ul>
+		  <li class="cross">fourht</li>
+		  <li class="tick">5</li>
+		  <li class="cross">6</li>
+		</ul> 
+	  </li>
+	  -->
+	  
+	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Website Works Nicely Locally but not Online</h2>
+	<p class="devLogDate">15/3/17</p>
+	<div id="clear"></div>
+
+	<p> Something frustrating happened when I pushed my development log changes online: they looked as designed when the local .html files were viewed in Chrome, but appeared as jibberish when I uploaded them to the website and viewed the live copy. As it turns out, fixing this just requires clearing your cache in Chrome. </p>	
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">JQuery to Fade in Monologue</h2>
+	<p class="devLogDate">15/3/17</p>
+	<div id="clear"></div>
+
+	<p> Up until now I have had my elevator pitch monologue as a separate series of independent pages that iterate through on a timer. This worked fine, but wasn't ideal. Luckily, JQuery provided the solution I was after. Being new to this, I was a little annoyed to not be instantly amazing at Javascript (js), but I put my functions in <i>jquery.js</i> in the same directory as <i>index.html</i> and linked the js to html via a script tag after the header section. I was able to avoid installing js on my machine by using a version of js hosted (I think) by Google. </p>	
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Front Page Card Layout</h2>
+	<p class="devLogDate">14/3/17</p>
+	<div id="clear"></div>
+
+	<p> I wanted to get some cards up on the front page to get an idea of how <i>index.html</i> could look. I used grey boxes with internal margins as placeholders, but these sort of grew on me to the point that I'm using that look for individual dev log entries. Note that I'm using the word 'card' to refer to each entire grey box containing all the information about a single bachelor (intended). </p>	
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Dynamic Resizing for Different Devices</h2>
+	<p class="devLogDate">1/3/17</p>
+	<div id="clear"></div>
+
+	<p> This entry and topic, I'm guessing, will never be completed to my liking. I don't want to get too pessimistic here, but I highly doubt I'm good enough to pull this off. Mostly, people will be looking at this site on their mobiles, so I should be designing the site for that, but I'm lazily going for a desktop version first. I copied some fancy code across a while ago the change my horizontal menu bar into a pressable dropdown menu, but this needs lots of work. </p>
+
+	<p> So, in summary, I'm roughly 0% finished this component. </p>
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Hosting and Circumventing cPanel File Manager</h2>
+	<p class="devLogDate">24/1/17</p>
+	<div id="clear"></div>
+
+	<p> After talking to friends a work about this, I woke up at 4am on Tuesday morning and decided to buy the domain name for this site. I went with eHost, because it provided the cheapest hosting I could find. Not expecting significant traffic, bandwidth ceilings weren't super important in my decision making process. I opted for a cPanel setup, so I could really get into the nitty-gritty of the design, but I ran up against the annoying method of uploading files to eHost through the cPanel FTP interface. I was able to <a href="https://www.youtube.com/watch?v=y2WaVhAF9TE">circumvent</a> this by setting up a connection through Filezilla > File > Site Manager. This provides a far better drag-and-drop interface that allows, crucially, multiple files to be queued for upload at once. Cannot recommend it enough. </p>	
+</div>
+
+<div id="footer"></div>
+
+
+
+ </body>
+ </html>
+
+ 

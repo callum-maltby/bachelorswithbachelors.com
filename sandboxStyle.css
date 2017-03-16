@@ -1,0 +1,34 @@
+/*@import url(http://fonts.googleapis.com/css?family=Roboto:300);*/
+body {
+  padding: 0 2em;
+  /*font-size: 1.3em;*/
+  /*font-family: 'Roboto', 'sans-serif';*/
+  /*color: white;
+  background: black;
+  input-placeholder: red;*/
+}
+/*h1 { color: papayawhip }*/
+
+
+/* List styling */
+.featureList, .featureList ul {
+  margin-top: 0;
+  padding-left: 2em;
+  list-style-type: none;
+}
+.featureList li:before {
+  content: "\2022";
+/*
+  position: absolute;
+  margin-left: -1.3em;
+  font-weight: bold;
+  */
+}
+.featureList li.tick:before {
+  content: "\2713";
+  color: lightgreen;
+}
+.featureList li.cross:before {
+  content: "\2717";
+  color: crimson;
+}
