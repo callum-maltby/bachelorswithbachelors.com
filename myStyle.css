@@ -10,7 +10,7 @@ body {
 #menuBackground {
     background:#2f3036;
     width:100%;
-    height:50px;
+    /*height:50px;*/
     text-align: center;
 }
 #menuContainer {
@@ -113,30 +113,31 @@ input[type=checkbox]:checked ~ #menu {
 }
 
 /*Responsive Styles*/
+/*
 @media screen and (max-width : 500px) {
-    /*Make dropdown links appear inline*/
+    //Make dropdown links appear inline
     ul {
         position:static;
         display:none;
         white-space: initial;
     }
 
-    /*Create vertical spacing*/
+    //Create vertical spacing
     li {
         margin-bottom:1px
     }
 
-    /*Make all menu links full width*/
+    //Make all menu links full width
     ul li,li a {
         width:100%
     }
 
-    /*Display 'show menu' link*/
+    //Display 'show menu' link
     .show-menu {
         display:block
     }
 }
-
+*/
 
 h1 {
     color: #F24B4B;
@@ -191,8 +192,9 @@ div#inlineImage {
 	align: center;
 }
 
-#container {
-    width: 800px;
+#bachelorCard {
+	width = 95%;
+    max-width: 800px;
 	align: center;
     background-color: #e6e6e6;
 	padding: 10px;
@@ -200,8 +202,24 @@ div#inlineImage {
 	margin: 0 auto 10px;
 }
 
+div#bachelorLeft {
+	width: 37.5%;
+    float: left;
+    height: auto;
+}
+
+div#bachelorRight {
+    width: 48%;
+    float: right;
+    height: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	/* text-align: left; */
+}
+
 #devLogContainer {
-    width: 750px;
+    width = 95%;
+    max-width: 800px;
 	align: left;
 	text-align: left;
     background-color: #e6e6e6;
@@ -224,21 +242,6 @@ div#inlineImage {
     clear: both;
 }
 
-div#bachelorLeft {
-	width: 300px;
-    float: left;
-    height: auto;
-}
-
-div#bachelorRight {
-    width: 430px;
-    float: right;
-    height: auto;
-	padding-left: 20px;
-	padding-right: 20px;
-	/* text-align: left; */
-}
-
 div#footer {
 	background-color: white;
 	height: 50px;
@@ -254,7 +257,8 @@ div#monologueContainer {
     /* give it dimensions */
     height: auto;
 	min-height: 100px;
-    width: 960px;
+	width = 95%;
+    max-width: 960px;
 	margin: 0 auto;
 	clear: both;
 	position: relative;
@@ -270,7 +274,8 @@ div#leadingText {
     margin-left: auto;
     /* give it dimensions */
     height: auto;
-    width: 960px;
+    width = 95%;
+    max-width: 960px;
 	margin: 0 auto;
 	clear: both;
 	position: relative;
