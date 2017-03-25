@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="myStyle.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
+
+<script type="text/javascript" src="jquery.js"></script>
 
 <body>
 <div id="menuBackground">
@@ -31,17 +34,52 @@
 	</input>
     </div>
  </div>
- 
- <div align = "center">
+
+ <div id="leadingText">
 	<h1> So you want to be a bachelor! </h1>
-	<p> #1: Go to uni. </br> #2: Finish uni. </br> #3: Be single. </p>
-	
+	<p> It's actually a pretty simple process:</p><p class="fastQuotes">#1: Go to uni.<p>
+	<p class="fastQuotes">#2: Finish uni.<p>
+	<p class="fastQuotes">#3: Be single.<p>
+
 </div>
-<div align = "center">
-	<a href="mono1.html">
-		<img src="images/handsomeCal.JPG" alt="cal2" style="width:400px;height:auto;">
-	</a>
-</div>
+
+<form class="signupForm">
+	<ul>
+	<li>
+		<label for="name">Name</label>
+		<input type="text" name="name" maxlength="100">
+		<span>Enter your full name</span>
+	</li>
+	<li>
+		<label for="age">Age</label>
+		<input type="number" name="age" maxlength="100">
+		<span>Enter your age</span>
+	</li>
+	<li>
+		<label for="degree">Degree</label>
+		<input type="text" name="degree" maxlength="100">
+		<span>Enter your university degree</span>
+	</li>
+	<li>
+		<label for="mobileNumber">Mobile Number</label>
+		<input type="number" name="mobileNumber" maxlength="100">
+		<span>Enter your mobile number</span>
+	</li>
+	<li>
+		<label for="email">Email</label>
+		<input type="email" name="email" maxlength="100">
+		<span>Enter a valid email address</span>
+	</li>
+	<li>
+		<label for="bio">About You</label>
+		<textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
+		<span>Say something about yourself</span>
+	</li>
+	<li>
+		<input type="submit" value="Submit" >
+	</li>
+	</ul>
+</form>
 
  </body>
  </html>

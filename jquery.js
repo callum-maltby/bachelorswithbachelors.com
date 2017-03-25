@@ -19,10 +19,34 @@ $(function() {
 
     showNextQuote();
 
-})();
+});
 
-$(document).ready(function() {    $('#mybutton').delay(3000).fadeIn(2200);
-  });
+
+
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+
+$(function() {
+
+    var fastQuotes = $(".fastQuotes");
+    var fastQuoteIndex = -1;
+
+    function showNextFastQuote() {
+        ++fastQuoteIndex;
+		//quotes.eq(quoteIndex % quotes.length)
+		fastQuotes.eq(fastQuoteIndex % fastQuotes.length)
+            .fadeIn(400)
+            .delay(900)
+			.fadeOut(400, showNextFastQuote);
+			
+    }
+
+    showNextFastQuote();
+
+});
 
 $(document).ready(function(){
 	$('#page_effect').fadeIn(5000);
