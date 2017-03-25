@@ -29,6 +29,7 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 
+/*
 $(function() {
 
     var fastQuotes = $(".fastQuotes");
@@ -47,6 +48,7 @@ $(function() {
     showNextFastQuote();
 
 });
+*/
 
 $(document).ready(function(){
 	$('#page_effect').fadeIn(5000);
