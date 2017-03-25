@@ -9,7 +9,9 @@ $(function() {
 		quotes.eq(quoteIndex)
             .fadeIn(2000)
             .delay(2000)
-			.fadeOut(2000, showNextQuote);
+			//if (quotesIndex < quotes.length) {
+				.fadeOut(2000, showNextQuote);
+			//}
 			
 			//if (quoteIndex === quotes.length) .stop(true)
 			
@@ -18,6 +20,9 @@ $(function() {
     showNextQuote();
 
 })();
+
+$(document).ready(function() {    $('#mybutton').delay(3000).fadeIn(2200);
+  });
 
 $(document).ready(function(){
 	$('#page_effect').fadeIn(5000);
