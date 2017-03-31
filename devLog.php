@@ -52,9 +52,9 @@
 		<li> Complete/improve the layout for each bachelor's "card"  </li>
 		<li> Think about how contact can be established. Perhaps a PASS/FAIL button can increase card size to include contact details  </li>
 		<li class="tick"> Remove the horizontal offset in the monologue, and vertically centre it. Centre the header links for equal spacing too  </li>
-		<li> Set up mySQL database  </li>
-		<li> Allow form submission into this database  </li>
-		<li> Fill container elements via php get requests  </li>
+		<li class="tick"> Set up mySQL database  </li>
+		<li class="tick"> Allow form submission into this database  </li>
+		<li class="tick"> Fill container elements via php get requests  </li>
 		<li> Dynamic rearranging/resizing for mobiles  </li>
 		<li class="cross"> Give up on this pointless venture</li>
 	  <!--
@@ -74,7 +74,11 @@
 	<p class="devLogDate">31/3/17</p>
 	<div id="clear"></div>
 
-	<p> Quick note, the responsive design works on reduced size browsers, but not phones. But, that's a problem for another time, because I've started to get my backend working. I installed <i>xampp</i> which bundles together Apache for running the server, mySQL for doing the database, and a bunch of other stuff I'm not using. Now, when I write documents with php in them, or that call .php files, I have to load them through the Apache server. Operationally, this means that instead of loading the /html file straight from a browser, I have to type <i>localhost/index.html</i> to get my php executed through Apache. My <i>xampp</i> was installed at c:/, but I've moved the location of localhost through xampp > Apache > config > Apache httpd.conf then changing DocumentRoot and Directory. I initially was unable to get hyperlinks working from .html  to .php files, so I 'fixed' this by just making everything a .php file.</p>	
+	<p> Quick note, the responsive design works on reduced size browsers, but not phones. But, that's a problem for another time, because I've started to get my backend working. Note, this entry is going to be a big one. I installed <i>xampp</i> which bundles together Apache for running the server, mySQL for doing the database, and a bunch of other stuff I'm not using. Now, when I write documents with php in them, or that call .php files, I have to load them through the Apache server. Operationally, this means that instead of loading the /html file straight from a browser, I have to type <i>localhost/index.html</i> to get my php executed through Apache. My <i>xampp</i> was installed at c:/, but I've moved the location of localhost through xampp > Apache > config > Apache httpd.conf then changing DocumentRoot and Directory. I initially was unable to get hyperlinks working from .html  to .php files, so I 'fixed' this by just making everything a .php file.</p>
+
+	<p>	I began by filling a <i>bachelors</i> table within my <i>bachelorswithbachelors</i> database. Note, I may have to add <i>bachelo1_</i> as a suffix to that database name, and use my online user profile details on the local setting to prevent having to change the linking code for databases between local and hosted. The input form calls a .php file which makes a connection to my database table, and generates and fills a new row when the submit button is pressed. However, getting image uploading was more difficult. In the end, the easiest solution appeared to be uploading the image to a separate folder, and making a database element that contains just the file name, although this does introduce the possibility of subsequent uploads overwriting new ones. This isn't an immediate concern, mostly because there are far worse problems with the site, and because I doubt I'll have anywhere near enough users (that aren't me) to make that statistically likely. A likely fix will be hashing the filename, or perhaps doing something tricky like convolving the filename with the upload time. I'm sure that already exists, I just don't know about it.	</p>
+	
+	<p>	To clear a local database table, navigate to the database level in phpMyAdmin, then empty the table. I had to do that repeatedly, because I continually used a picture of Dyl as a test. Uploading my local database to eHost proved a bit of a trial: in the end I went through the mySQL wizard to make a database, make a password protected user and assign me every privilege. Then, I could upload my database through the import tool. Prior, I was getting a #1046 error. Then, lastly, I had to remember to change the setup line of php, to change the database name to what the online wizard made it. Then, to do a quick system test, I uploaded a profile of Hugh Grant through the hosted website to prove it works. And it does! I'm pretty chuffed, and tired, and chuffed again. </p>
 </div>
 
 <div id="devLogContainer">

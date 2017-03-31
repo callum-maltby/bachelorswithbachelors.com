@@ -59,13 +59,12 @@
 </div>
 
 <?php
-$link = mysqli_connect("localhost", "root", "", "bachelorswithbachelors");
+$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
  
 // Check connection
 if($link === false){
     echo("ERROR: Could not connect. " . mysqli_connect_error());
 }
-ALTER TABLE tablename ORDER BY columnname ASC;.
 
 if($result = $link->query("SELECT name,age,degree,location,mobileNumber,bio,image FROM bachelors ")){
     if($count = $result->num_rows){

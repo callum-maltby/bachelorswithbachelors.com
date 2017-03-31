@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "root", "", "bachelorswithbachelors");
+$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
  
 // Check connection
 if($link === false){
@@ -49,7 +49,7 @@ if(mysqli_query($link, $sql)){
 // close connection
 mysqli_close($link);
 
-//header('Location: http://www.bachelorswithbachelors.com');
+header('Location: http://www.bachelorswithbachelors.com');
 //exit;
 
 ?>
