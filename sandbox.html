@@ -12,8 +12,35 @@
 
 <body>
 
+lorem ipsum
 
+<?php
+$link = mysqli_connect("localhost", "root", "", "bachelorswithbachelors");
+ 
+// Check connection
+if($link === false){
+    echo("ERROR: Could not connect. " . mysqli_connect_error());
+} else {
+	echo "all cool"
+}
 
+?>
+
+<?php 
+  if($result = $link->query("SELECT name FROM bachelors ")){
+    if($count = $result->num_rows){
+      while($row = $result->fetch_object()){
+?> 
+        <div>
+          <?php echo $row->forename; ?><br><br>
+          <?php echo $row->surname; ?><br><br>
+        </div>
+<?php          
+      }
+    $result->free();
+    }
+  }
+?>
 
 </body>
 </html>

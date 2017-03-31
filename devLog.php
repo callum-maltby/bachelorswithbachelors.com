@@ -20,8 +20,8 @@
             
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
-			<li><a href="becomeBachelor.html">Become a Bachelor</a></li>
-			<li><a href="devLog.html">Development Log</a></li>
+			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="devLog.php">Development Log</a></li>
         </ul>
 	</input>
     </div>
@@ -74,7 +74,7 @@
 	<p class="devLogDate">31/3/17</p>
 	<div id="clear"></div>
 
-	<p> Quick note, the responsive design works on reduced size browsers, but not phones. But, that's a problem for another time, because I've started to get my backend working. I installed <i>xampp</i> which bundles together Apache for running the server, mySQL for doing the database, and a bunch of other stuff I'm not using. Now, when I write documents with php in them, or that call .php files, I have to load them through the Apache server. Operationally, this means that instead of loading the /html file straight from a browser, I have to type <i>localhost/index.html</i> to get my php executed through Apache. My <i>xampp</i> was installed at c:/, but I've moved the location of localhost through xampp > Apache > config > Apache httpd.conf then changing DocumentRoot and Directory. </p>	
+	<p> Quick note, the responsive design works on reduced size browsers, but not phones. But, that's a problem for another time, because I've started to get my backend working. I installed <i>xampp</i> which bundles together Apache for running the server, mySQL for doing the database, and a bunch of other stuff I'm not using. Now, when I write documents with php in them, or that call .php files, I have to load them through the Apache server. Operationally, this means that instead of loading the /html file straight from a browser, I have to type <i>localhost/index.html</i> to get my php executed through Apache. My <i>xampp</i> was installed at c:/, but I've moved the location of localhost through xampp > Apache > config > Apache httpd.conf then changing DocumentRoot and Directory. I initially was unable to get hyperlinks working from .html  to .php files, so I 'fixed' this by just making everything a .php file.</p>	
 </div>
 
 <div id="devLogContainer">

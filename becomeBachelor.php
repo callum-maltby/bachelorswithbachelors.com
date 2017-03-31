@@ -17,9 +17,9 @@
     <input type="checkbox" id="show-menu" role="button">
             
 		<ul id="menu">
-			<li><a href="index.php">Home</a></li>
-			<li><a href="becomeBachelor.html">Become a Bachelor</a></li>
-			<li><a href="devLog.html">Development Log</a></li>
+			<li><a href="/">Home</a></li>
+			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="devLog.php">Development Log</a></li>
 			<!--
         <li>
             <a href="#">Portfolio ￬</a>
@@ -43,7 +43,7 @@
 
 </div>
 
-<form class="signupForm" action="insertBachelor.php" method="post">
+<form class="signupForm" action="insertBachelor.php" method="post" enctype="multipart/form-data">
 	<ul>
 	<li>
 		<label for="name">Name</label>
@@ -79,6 +79,11 @@
 		<label for="bio">About You</label>
 		<textarea name="bio" onkeyup="adjust_textarea(this)"></textarea>
 		<span>Say something about yourself</span>
+	</li>
+	<li>
+		<label for="imageUpload">Image</label>
+		<input type="file" name="imageUpload">
+		<span>Upload an image of yourself</span>
 	</li>
 	<li>
 		<input type="submit" value="Submit" >

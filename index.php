@@ -20,8 +20,8 @@
             
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
-			<li><a href="becomeBachelor.html">Become a Bachelor</a></li>
-			<li><a href="devLog.html">Development Log</a></li>
+			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="devLog.php">Development Log</a></li>
 			<!--
         <li>
             <a href="#">Portfolio ￬</a>
@@ -57,60 +57,46 @@
 	<h1 class="quotes">Feel free to browse this batch:</h1>
 	</span>
 </div>
-<!--
-<div id="mybutton">DO NOT PUSH</div>
 
+<?php
+$link = mysqli_connect("localhost", "root", "", "bachelorswithbachelors");
+ 
+// Check connection
+if($link === false){
+    echo("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ALTER TABLE tablename ORDER BY columnname ASC;.
 
-<div id ="inlineImage">
-	<a href="https://www.youtube.com/watch?v=5fmj5TWxxog">
-		<img src="images/dating.png" alt="handsomeCal" style="width:400px;height:auto;">
-	</a>
-</div>
+if($result = $link->query("SELECT name,age,degree,location,mobileNumber,bio,image FROM bachelors ")){
+    if($count = $result->num_rows){
+		while($row = $result->fetch_object()){
+?> 
 
--->
+			<div id="bachelorCard">
+				<div id="bachelorLeft">
+					<!-- echo "<img src='uploads/".$row->image."' />"; -->
+					<?php
+						echo "<img src='uploads/".$row->image."' / width=100%;height=auto>";
+					?>
+					<!--<img src="uploads/"".jpg" alt="handsomeCal" style="width:100%;height:auto;vertical-align:middle;"> -->
+				</div>
+				<div id="bachelorRight">
+					<h2 align="center"> <?php echo $row->name; ?> <br><br> </h2>
+					<p> Age: <?php echo $row->age; ?></p>
+					<p> University Degree/s: <?php echo $row->degree; ?></p>
+					<p> Location: <?php echo $row->location; ?></p>
+					<p> Brief Bio: <?php echo $row->bio; ?></p>
+				</div>
+				<div id="clear"></div>
+			</div>
 
+<?php          
+		}	
+		$result->free();
+    }
+}
+?>
 
-
-<!--
-<div id="bachelorCard">
-    <div id="bachelorLeft">
-		<img src="images/Milhouse.PNG" alt="handsomeCal" style="width:100%;height:auto;vertical-align:middle;">
-	</div>
-    <div id="bachelorRight">
-		<h2 align="center"> Thrillho </h2>
-		<p> Age: 24 </p>
-		<p> University Degree/s: Bachelor of Science and Master of Electrical Engineering </p>
-		<p> Hobbies: <a href="sandbox.php">Listening</a></li> </p>
-	</div>
-    <div id="clear"></div>
-</div>
-
-<div id="bachelorCard">
-    <div id="bachelorLeft">
-		<img src="images/kirk.jpg" alt="handsomeCal" style="width:100%;height:auto;">
-	</div>
-    <div id="bachelorRight">
-		<h2 align="center"> Kirk Something </h2>
-		<p> Age: misc </p>
-		<p> University Degree/s: awkwardness </p>
-		<p> Hobbies: <a href="404page.html">?</a></li> </p>
-	</div>
-    <div id="clear"></div>
-</div>
-
-<div id="bachelorCard">
-    <div id="bachelorLeft">
-		<img src="images/sleepyGary.png" alt="handsomeCal" style="width:100%;height:auto;">
-	</div>
-    <div id="bachelorRight">
-		<h2 align="center"> Gary </h2>
-		<p> Age: adult </p>
-		<p> University Degree/s:  </p>
-		<p> Hobbies: wife-swapping, sleeping </p>
-	</div>
-    <div id="clear"></div>
-</div>
--->
 
 <div id="footer"></div>
 
