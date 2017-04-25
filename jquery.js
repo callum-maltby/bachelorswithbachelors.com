@@ -68,7 +68,3 @@ $(document).ready(function(){
     
     next();
 })();
-
-$("#monologue_fade").fadeOut(function() {
-  $(this).text("World").fadeIn();
-});

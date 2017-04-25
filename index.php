@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-	<title>bachelorswithbachelors</title>
-	<link rel="stylesheet" type="text/css" href="myStyle.css">
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-
-	</script>
-</head>
-
-<script type="text/javascript" src="jquery.js"></script>
-
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>bachelorswithbachelors.com </title>
+		<link rel="stylesheet" type="text/css" href="myStyle.css" />
+		
+		<script src="js/modernizr.custom.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	</head>
+	
+	<script type="text/javascript" src="jquery.js"></script>
+	
 <body>
 <div id="menuBackground">
     <div id="menuContainer">
@@ -21,6 +22,7 @@
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="404page.php">Testimonials</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
 			<!--
         <li>
@@ -58,8 +60,13 @@
 	</span>
 </div>
 
+<section class="color-3">
+	<button class="btn btn-3 btn-3e">Send data</button>
+</section>
+
 <?php
-$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
+//$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
+$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
  
 // Check connection
 if($link === false){
@@ -75,7 +82,7 @@ if($result = $link->query("SELECT name,age,degree,location,mobileNumber,bio,imag
 				<div id="bachelorLeft">
 					<!-- echo "<img src='uploads/".$row->image."' />"; -->
 					<?php
-						echo "<img src='uploads/".$row->image."' / width=100%;height=auto>";
+						echo "<img src='uploads/".$row->image."' / width=100%;height=auto;image-orientation: from-image>";
 					?>
 					<!--<img src="uploads/"".jpg" alt="handsomeCal" style="width:100%;height:auto;vertical-align:middle;"> -->
 				</div>
@@ -85,6 +92,10 @@ if($result = $link->query("SELECT name,age,degree,location,mobileNumber,bio,imag
 					<p> University Degree/s: <?php echo $row->degree; ?></p>
 					<p> Location: <?php echo $row->location; ?></p>
 					<p> Brief Bio: <?php echo $row->bio; ?></p>
+					<p>
+						<button class="btn btn-3 btn-3d icon-cog">Settings</button>
+						<button class="btn btn-3 btn-3e \25B7">Send data</button>
+					</p>
 				</div>
 				<div id="clear"></div>
 			</div>

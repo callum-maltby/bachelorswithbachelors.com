@@ -21,6 +21,7 @@
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="404page.php">Testimonials</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
         </ul>
 	</input>
@@ -67,6 +68,20 @@
 	  -->
 	  
 	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Coming Back to Work</h2>
+	<p class="devLogDate">25/4/17</p>
+	<div id="clear"></div>
+
+	<p> As astute followers might realise, I haven't done any work on this site for ages. I got it to a point where it was (barely) functional, then the motivation ran out. But, I'm here to fix that. First let me say that it's oddly gratifying to have people actually sign up for this site. I may have just provided another mechanism for cyber-bullying, but at least they're doing it on my site.</p>
+
+	<p>	I've got a long list of things I want to do in this sprint. I want to fix the image rotation that occurs when people take photos directly from their phone. I've read that this is possible, so I'll leave that for now. More importantly, I want to make it more interactive. I want to put in buttons to allow a female browser (like Opera...(http://www.opera.com/) ...great joke Cal) to either approve or disapprove of a bachelor. An approval will display the bachelor's contact details, and increment a rank metric. Disapproval will decrement this metric. Ideally, I'll have the bachelors displayed in order of quality. Now that I'm writing this, that sounds pretty mean, but I'd be good to filter down profiles without image, or that are accidental uploads. Perhaps I can automatically remove profiles without a picture.	</p>
+	
+	<p>	I'll put up a testimonials page, and perhaps actually put a submission form in their in the future. I will need to do something smarter to ensure that no duplicate image filenames exist: at the moment the system is pretty terrible. I'll also make a 'secure side' for me, where I can downvote profiles to remove them from the main site. That'll probably just remove 10000 points from their rank metric, and I might have a -100 cutoff below which profiles aren't shown. </p>
+	
+	<p> Anyway, lots to do, so I'll get cracking. </p>
 </div>
 
 <div id="devLogContainer">

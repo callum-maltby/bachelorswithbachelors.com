@@ -16,6 +16,7 @@
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="404page.php">Testimonials</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
 			<!--
         <li>
