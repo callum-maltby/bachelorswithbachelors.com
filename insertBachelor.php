@@ -1,8 +1,8 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-//$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
-$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
+$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
+//$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
 
 // Check connection
 if($link === false){
@@ -29,9 +29,9 @@ $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+    //echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
 } else {
-    echo "Sorry, there was an error uploading your file.";
+    //echo "Sorry, there was an error uploading your file.";
 }
 
 $image=basename( $_FILES["imageUpload"]["name"]); // used to store the filename in a variable
@@ -40,12 +40,21 @@ $image=basename( $_FILES["imageUpload"]["name"]); // used to store the filename 
 // attempt insert query execution
 //$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('$first_name', '$last_name', '$email')";
 $sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$image')";
+mysqli_query($link, $sql);
+
+/*
 if(mysqli_query($link, $sql)){
     header('Location: /');
 	//echo "Records added successfully.";
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+	header('Location: /');
+    //echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
+*/
+// Sort table to show most recent entry first
+$sortQuery = "ALTER TABLE bachelors ORDER BY dateTimeAdded DESC";
+mysqli_query($link, $sortQuery);
+
  
 // close connection
 mysqli_close($link);

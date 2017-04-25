@@ -21,7 +21,7 @@
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
-			<li><a href="404page.php">Testimonials</a></li>
+			<li><a href="404page.php">Testimonials</a></li>  
 			<li><a href="devLog.php">Development Log</a></li>
         </ul>
 	</input>
@@ -57,6 +57,12 @@
 		<li class="tick"> Allow form submission into this database  </li>
 		<li class="tick"> Fill container elements via php get requests  </li>
 		<li> Dynamic rearranging/resizing for mobiles  </li>
+		<li> Buttons to show/hide profiles and increment some rank metric  </li>
+		<li> Secure side for me to delete profiles, and perhaps and ESP8266-based piece of hardware to take down the site as a party-piece  </li>
+		<li> Fix rotating of phone camera images, and consider resizing for loading speed </li>
+		<li> Avoid duplicating image names, perhaps append username on  </li>
+		<li> Vertically align bachelorLeft divs  </li>
+		
 		<li class="cross"> Give up on this pointless venture</li>
 	  <!--
 		<ul>
@@ -68,6 +74,18 @@
 	  -->
 	  
 	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Buttons, the bane of my existence</h2>
+	<p class="devLogDate">25/4/17</p>
+	<div id="clear"></div>
+
+	<p> Today I put in some buttons to allow a user to 'like' of 'dislike' a profile. Disliking was remove those buttons, and decrement a rank metric. Liking a profile would hide the buttons, show the contact details, and increment a rank metric. I started off making the button itself, before I wired it to anything. I pulled some examples from https://tympanus.net/Development/CreativeButtons/, which actually has some pretty sweet designs. I had to be a little sneaky to get to the css though. After a fair amount of rigmalore (induced solely because I'm bad at this) I managed to integrate a dummy button into my index.php fle. Remember, I have to boot Apache and SQL through Xampp because my divs are filled from a local database. When I uploaded this to eHost, the cool styling is gone, and it doesn't perform the Java functions like it did locally. I still don't know what's happened. </p>
+
+	<p>	My buttons execute Java code through <i> <xmp><button class="btn btn-3 btn-right" onclick="showDetails('detailsDiv');">Swipe Right</button></xmp> </i>where the <i>showDetails()</i>function is stored in <i>jquery.js</i>. This just un/shows a particular div. However, another unsolved issue: even locally the changes only apply to the top div. Something I don't understand is happening when I read out values from the database. </p>
+	
+	<p>	I also put in a piece of SQL code to sort the database in descending order whenever somebody adds a new profile. This is a temporary measure before I write a proper ranking algorithm, incorporating likeability and recentness. Embedding SQL code in php turned out to b fairly easy: <i> <xmp>$sortQuery = "ALTER TABLE bachelors ORDER BY dateTimeAdded DESC"; mysqli_query($link, $sortQuery);</xmp> </i>This makes a string, which is executed via a query into my database. The link argument is a setup parameter to connect into the database. </p>
 </div>
 
 <div id="devLogContainer">

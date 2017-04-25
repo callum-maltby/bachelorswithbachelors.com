@@ -39,35 +39,24 @@
     </div>
 	<div id="clear"></div>
  </div>
- 
- 
- <!--<div margin-left=20px, align = "center", position="relative"> -->
- <div id="monologueContainer">
-	<span style = "vertical-align:middle">
-	<!--<h1> Welcome to the future of dating. </h1> -->
-	<h2 class="quotes">It's a simple question with a complex answer.</h2>
-	<h2 class="quotes">What do we all want? Money? No. Power? No.</h2>
-	<h2 class="quotes">Love. We want to be loved.</h2>
-	<h2 class="quotes">But in this ever-changing world, love is more elusive than ever.</h2>
-	<h2 class="quotes">So, why not use the internet to help? We call this revolutionary idea: 'Internet Dating'.</h2>
-	<h2 class="quotes">Upon inspection, we found out that this already existed, so we focused on one particular area: </h2>
-	<h2 class="quotes">Helping women find single and intelligent men.</h2>
-	<h2 class="quotes">Wouldn't it be great if women could browse through libraries of eligible, tertiary-educated men?</h2>
-	<h2 class="quotes">After literally years of idle thought and minutes of half-hearted exertion, such a service finally exists.</h2>
-	<h2 class="quotes">We call it:</h2>
-	<h2 class="quotes">bachelorswithbachelors.com</h2>
-	<h2 class="quotes">Feel free to browse this batch:</h2>
-	</span>
-</div>
+
 
 <?php
-$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
-//$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
+//$link = mysqli_connect("localhost", "bachelo1_callum", "callum3141", "bachelo1_bachelorswithbachelors");
+$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
  
 // Check connection
 if($link === false){
     echo("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
+?>
+
+<form method="POST" action="removeBlanks.php">
+	<input type="button" name="nw_update" value="NW_Update"/>
+</form>
+					
+<?php
 
 if($result = $link->query("SELECT name,age,degree,location,mobileNumber,email,bio,image FROM bachelors ")){
     if($count = $result->num_rows){
@@ -97,6 +86,9 @@ if($result = $link->query("SELECT name,age,degree,location,mobileNumber,email,bi
 						<button class="btn btn-3 btn-left" onclick="hideButtons();">Swipe Left</button>
 						<button class="btn btn-3 btn-right" onclick="showDetails('detailsDiv');">Swipe Right</button>
 					</div>
+					
+					
+					
 					<!--
 					<div>
 						<div width=40%, align="center">

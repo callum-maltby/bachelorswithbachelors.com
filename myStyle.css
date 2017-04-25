@@ -60,21 +60,6 @@ body {
 	font-weight: bold;
 }
 
-.container > section.info p {
-	color: #fff;
-	font-size: 1.3em;
-	font-weight: 300;
-}
-
-.container > section.info p a {
-	color: #fff;
-	font-weight: 700;
-}
-
-.container > section.info p a:hover {
-	color: #0c69a4;
-}
-
 .btn {
 	border: none;
 	font-family: inherit;
@@ -82,9 +67,9 @@ body {
 	color: inherit;
 	background: none;
 	cursor: pointer;
-	padding: 25px 80px;
+	padding: 1px 1px;
 	display: inline-block;
-	margin: 15px 30px;
+	margin: 5px 5px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
@@ -127,23 +112,23 @@ body {
 	top: 0;
 	line-height: 3;
 	font-size: 140%;
-	width: 60px;
+	/*width: 60px;*/
 }
 
 
-/* Button 3e */
-.btn-3e {
-	padding: 25px 120px 25px 60px;
+/* Swipe left button */
+.btn-left {
+	padding: 30px 30px 30px 30px;
 	overflow: hidden;
 }
 
-.btn-3e:before {
+.btn-left:before {
 	left: auto;
 	right: 10px;
 	z-index: 2;
 }
 
-.btn-3e:after {
+.btn-left:after {
 	width: 30%;
 	height: 200%;
 	background: rgba(255,255,255,0.1);
@@ -161,8 +146,43 @@ body {
 	transform: rotate(-20deg);
 }
 
-.btn-3e:hover:after {
-	width: 40%;
+.btn-left:hover:after {
+	width: 70%;
+}
+
+/* Swipe right button */
+.btn-right {
+	padding: 30px 30px 30px 30px;
+	overflow: hidden;
+	align: right;
+}
+
+.btn-right:before {
+	left: auto;
+	right: -10px;
+	z-index: 2;
+}
+
+.btn-right:after {
+	width: 70%;
+	height: 200%;
+	background: rgba(255,255,255,0.1);
+	z-index: 1;
+	right: 0;
+	top: 0;
+	margin: -5px 0 0 -5px;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: rotate(-20deg);
+	-moz-transform-origin: 0 0;
+	-moz-transform: rotate(-20deg);
+	-ms-transform-origin: 0 0;
+	-ms-transform: rotate(-20deg);
+	transform-origin: 0 0;
+	transform: rotate(-20deg);
+}
+
+.btn-right:hover:after {
+	width: 30%;
 }
 
 
@@ -370,7 +390,7 @@ div#bachelorLeft {
     float: left;
 	display:inline-block;
 	vertical-align: middle;
-    height: auto;
+    height: 100%;
 }
 
 div#bachelorRight {
@@ -415,8 +435,8 @@ div#footer {
 }
 
 div#monologueContainer {
-	position: fixed;
-    /* center the element */
+	/*position: fixed;
+     center the element */
     right: 0;
     left: 0;
     margin-right: auto;

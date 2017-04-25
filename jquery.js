@@ -68,3 +68,16 @@ $(document).ready(function(){
     
     next();
 })();
+
+
+function showDetails(id) {
+   	var e = document.getElementById(id);
+  	e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+	var f = document.getElementById('buttons');
+	f.style.display = (f.style.display == 'block') ? 'none' : 'block';
+}
+
+function hideButtons() {
+	var g = document.getElementById('buttons');
+	g.style.display = (g.style.display == 'block') ? 'none' : 'block';
+}
