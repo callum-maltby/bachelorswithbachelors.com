@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Development Log</title>
 	<link rel="stylesheet" type="text/css" href="myStyle.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
@@ -65,6 +65,7 @@
 		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
 		<li> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
 		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
+		<li> Improve the image upload button aesthetic in <i>becomeBachelor.php</i></li>
 		<li class="cross"> Give up on this pointless venture</li>
 	  <!--
 		<ul>
@@ -87,7 +88,7 @@
 	
 	<i> <xmp><form class="signupForm" action="insertBachelor.php" method="post" enctype="multipart/form-data"></xmp> </i>
 	
-	<p>Obviously, that was a terrible mechanism, since fixing it turned out to be super easy. I just followed the guide provided at https://codeforgeek.com/2014/12/google-recaptcha-tutorial/. I had initially opted for the invisible captcha, but I had issues with my <i>recaptcha_get_html()</i> function not being found, so I opted for this instead.</p>
+	<p>Obviously, that was a terrible mechanism, since fixing it turned out to be super easy. I just followed the guide provided at https://codeforgeek.com/2014/12/google-recaptcha-tutorial/. I had initially opted for the invisible captcha, but I had issues with my <i>recaptcha_get_html()</i> function not being found, so I opted for the visible captcha instead. As a high level explanation, the <i>becomeBachelor.php</i> page passes the inputs data fields and the recaptcha state to the <i>insertBachelor.php</i> functions which actually places the entry in the database. The mySQL insertion code is simply sitting inside an <i>if</i> statement whose guard is the result of the captcha challenge. One trick not mentioned in the article was the requirement that both the remote domain <i>bachelorswithbachelors.com</i> and my localhost IP needed to be added to the recaptcha list of approved domain to prevent the captcha having a hissy when I was deving locally.</p>
 </div>
 
 <div id="devLogContainer">
@@ -103,7 +104,7 @@
 		<li> Stop some pages from zooming out</li>
 		<li> Investigate setting up Amazon link-in store</li>
 		<li class="tick"> Make things load faster, but not using massive .jpgs</li>
-		<li> Set up Git and Github, find a way to not upload my SQL passwords in so doing</li>
+		<li class="tick""> Set up Git and Github, find a way to not upload my SQL passwords in so doing</li>
 	</ul>
 	
 	<p>As to whether this happens, let's see.</p>

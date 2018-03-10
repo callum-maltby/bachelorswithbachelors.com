@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densityDpi=device-dpi" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="myStyle.css">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -29,10 +29,7 @@
 	<h1> So you want to be a bachelor! </h1>
 	<p> It's actually a pretty simple process:</p><p class="fastQuotes">#1: Go to uni.<p>
 	<p class="fastQuotes">#2: Finish uni.<p>
-	<p class="fastQuotes">#3: Be single.<p>
-
-	Due to the fact that the site has recently been overrun by bots or Dylan trying to advertise cheap viagra and personal loans, I've disable the bachelor upload feature until I can be bothered to put in a captcha or similar mechanism. So, for all those lonely bachelors out there, meandering aimlessly into the mists of muted despair, I apologise.
-	
+	<p class="fastQuotes">#3: Be single.<p>	
 </div>
 
 <div id="devLogContainer" style="background:white;opacity:1;max-width:400px">
@@ -82,16 +79,12 @@ This is still insecure, but ceebs-->
 		<input type="file" name="imageUpload">
 		<span>Upload an image of yourself</span>
 	</li>
-	<!--<button
-		class="g-recaptcha"
-		data-sitekey="6LfS1EsUAAAAAG_moRO8w18-mOG5x4FgnnLptjqG"
-		data-callback="insertBachelor.php">
-	Submit
-	</button>-->
-	<li>
-		<input type="submit" value="Submit" >
-	</li>
-	<div class="g-recaptcha" data-sitekey="6Ld41ksUAAAAABZ3GRzD3assUlQA5KgbZ5rB8DD5"></div>
+	<!--<div style="text-align:center">
+		<div style="margin-bottom:20px;align:center;display:inline-block;transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:18 0;" class="g-recaptcha" data-sitekey="6Ld41ksUAAAAABZ3GRzD3assUlQA5KgbZ5rB8DD5"></div>
+		<input type="submit" value="Submit">
+	</div>-->
+	<div style="margin-bottom:10px;align:center;display:inline-block;transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:18 0;" class="g-recaptcha" data-sitekey="6Ld41ksUAAAAABZ3GRzD3assUlQA5KgbZ5rB8DD5"></div>
+		<input type="submit" value="Submit">
 	</ul>
 </form>
 </div>
