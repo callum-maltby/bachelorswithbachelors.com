@@ -14,14 +14,12 @@
 
 <body>
 <div id="menuBackground">
-    <div id="menuContainer">
-    <label for="show-menu" class="show-menu">Show Menu</label>
-    <input type="checkbox" id="show-menu" role="button">
-            
+    <div id="menuContainer">           
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
-			<li><a href="404page.php">Testimonials</a></li>  
+			<li><a href="404page.php">Testimonials</a></li>
+			<li><a href="merchandise.php">Merchandise</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
         </ul>
 	</input>
@@ -40,7 +38,7 @@
 
 <div id="devLogContainer">
 	<h2 class="devLogTitle">Features to Implement</h2>
-	<p class="devLogDate">Updated 15/3/17</p>
+	<p class="devLogDate">Updated 25/9/17</p>
 	<div id="clear"></div>
 
 	<p> There is a lot of work to get this thing up and running: </p>
@@ -49,20 +47,24 @@
 		<li class="tick"> Start a development log</li>
 		<li class="tick"> Fade in monologue with jquery </li>
 		<li class="tick"> Setup Git, no matter how much I don't want to  </li>
-		<li> Vertically centre bachelorLeft div </li>
-		<li> Complete/improve the layout for each bachelor's "card"  </li>
-		<li> Think about how contact can be established. Perhaps a PASS/FAIL button can increase card size to include contact details  </li>
+		<li> Complete/improve the layout for each bachelor's "card" </li>
+		<li> Add small heart at lower right, hover and click change this to red. See below. Style pulled from https://dribbble.com/shots/1454695-Etiolate-Tumblr-Theme/attachments/215438  </li>
+		<li> Buttons to show/hide profiles and increment some rank metric  </li>
+		<li class="tick"> Think about how contact can be established. Perhaps a PASS/FAIL button can increase card size to include contact details. belay  </li>
 		<li class="tick"> Remove the horizontal offset in the monologue, and vertically centre it. Centre the header links for equal spacing too  </li>
 		<li class="tick"> Set up mySQL database  </li>
 		<li class="tick"> Allow form submission into this database  </li>
 		<li class="tick"> Fill container elements via php get requests  </li>
-		<li> Dynamic rearranging/resizing for mobiles  </li>
-		<li> Buttons to show/hide profiles and increment some rank metric  </li>
+		<li> Dynamic rearranging/resizing for mobiles, two cards wide on PC  </li>
 		<li> Secure side for me to delete profiles, and perhaps and ESP8266-based piece of hardware to take down the site as a party-piece  </li>
 		<li> Fix rotating of phone camera images, and consider resizing for loading speed </li>
 		<li> Avoid duplicating image names, perhaps append username on  </li>
-		<li> Vertically align bachelorLeft divs  </li>
-		
+		<li class="tick"> Add a store link in banner </li>
+		<li> Remove slight gap at bottom of bachelor card </li>
+		<li> Rank and remove empty profiles </li>
+		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
+		<li> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
+		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
 		<li class="cross"> Give up on this pointless venture</li>
 	  <!--
 		<ul>
@@ -74,6 +76,93 @@
 	  -->
 	  
 	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Captchas and Stopping the <del>Boats</del>Spam</h2>
+	<p class="devLogDate">11/3/18</p>
+	<div id="clear"></div>
+	
+	<p>For months the bachelor upload feature had been disabled, because Dylan/some spammers were making profiles every half hour advertising viagra and personal loans. My broad brush method for dealing with this was to remove the form action from:</p>
+	
+	<i> <xmp><form class="signupForm" action="insertBachelor.php" method="post" enctype="multipart/form-data"></xmp> </i>
+	
+	<p>Obviously, that was a terrible mechanism, since fixing it turned out to be super easy. I just followed the guide provided at https://codeforgeek.com/2014/12/google-recaptcha-tutorial/. I had initially opted for the invisible captcha, but I had issues with my <i>recaptcha_get_html()</i> function not being found, so I opted for this instead.</p>
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">The Umpteenth Sprint</h2>
+	<p class="devLogDate">8/3/18</p>
+	<div id="clear"></div>
+	
+	<p>My buddy Joe works in an office that embraces the idea of work sprints: short achieveable tasks that can be completed in a timeframe that is within reach. In that spirit, I would like to: </p>
+	
+	<ul class="featureList">
+		<li> Implement a Captcha and re-enable profile uploads. Timestamp uploaded images</li>
+		<li> Fix the Chrome cut-off issue</li>
+		<li> Stop some pages from zooming out</li>
+		<li> Investigate setting up Amazon link-in store</li>
+		<li class="tick"> Make things load faster, but not using massive .jpgs</li>
+		<li> Set up Git and Github, find a way to not upload my SQL passwords in so doing</li>
+	</ul>
+	
+	<p>As to whether this happens, let's see.</p>
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Proper Responsive Design</h2>
+	<p class="devLogDate">27/9/17</p>
+	<div id="clear"></div>
+	
+	<p>	I finally did it. I'm very proud of myself. As it turns out, making responsively designed webpages is actually alternately pretty fun and amazingly frustrating. I goal was to emulate the visual appeal of a site like https://dribbble.com/shots/1454695-Etiolate-Tumblr-Theme/attachments/215438, but tailored to my specific circumstance.  </p>
+	
+	<p>	Let's explain a little more in detail. On the home page, information about multiple bachelors is displayed, where each bachelor has their photo and details contained within one <i>card</i>. These cards allow for some really clean looks later on down the track. I would also like the website to be responsive, meaning that it should change depending on the screen resolution of the viewing device, rather than just zoom out. At present, the signup form page doesn't do this, and I suspect that the form is to blame. This is another problem on a long list of problems to fix, although for the time being, when viewed on a phone the background images looks really good. Moving back to discussion of responsive design, I wanted the cards to be able to rearrange themselves depending on the available screen width: on a phone there would be one column, and more columns would appear for larger screens. Importantly, I wanted the horizontal breaks to be staggered, allowing for clean display of different height cards. </p>
+	
+	<p> To help me achieve this, I downloaded <i>materialise.css</i>, which is a pre-defined style sheet freely available on the web. This is nothing more than a heap of predefined div, input, text, etc types, the exact thing you'd put in your own <i>myStyle.css</i> file. Because it's generic, there are a heap of things you're unlikely to use. I may pull out just the bits that I want, fold these into my own style sheet, and remove the full .css file. The .css comes in a full and compressed form, however I must have made changes to the compressed form, so it works where the uncompressed file doesn't.</p>
+	
+	<p>I did this incrementally, first downloading sample html code from https://codepen.io/mike-north/pen/MwVoYp for getting responsive design going with their <i>divs</i>. This displayed the cards in one to three columns. I then changed the card class to my bachelorCard, and it still worked. I then copied my full <i>while</i> loop <i>php</i> code into the container, and it worked like a charm, albeit with a little finagling that I can't recall. I had to fix something, but I can't remember what. I added padding to the cards and the container, and here we are.</p>
+	
+	<p>Now. Some of you may be viewing this site using Chrome. Apparently, 54% of site visits are using Chrome, but that's an aside. You'll notice that the cards exhibit wraparound at the start and end of the full container. This behaviour isn't seen in IE, and I have no idea about other browsers. Apparently, there is a known bug in Chrome, and there seems to be a a workaround where you substitute <i>margin-left</i> in place for <i>transform</i>. But, this may be for dynamic cards. I'll chase this down later on.</p>
+	
+	<p>Lastly, I put a background image on the <i>body</i> because I though the origami looked nice, and styled it using the following to get the image to be static and fully-covering, while the cards moved independently. I might see if the menu can be static too, but only for larger screens.
+
+	<i> <xmp>
+	body {
+		background-image: url("images/origami_1.jpg");
+		background-attachment: fixed;
+		background-size: cover;
+		margin:0 auto;
+		padding: 0;
+		font: 15px Century Gothic; 
+		text-align: center;
+	}
+	</xmp> </i> 
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Changing Database Values</h2>
+	<p class="devLogDate">25/9/17</p>
+	<div id="clear"></div>
+	
+	<p>So Jake took advantage of a mate's rates deal to signed his mate Matt up to the service for free. However, upon reflection, he decided that he wanted the email address changed. This placed the site admin in the invidious position of having to learn how to do something for his website. However, silver lining: Jake stopped responding to messages, and provided no clear advice on what he wanted to email address changed to. Naturally, the site admin exercised his questionable judgement, the results of which can be seen on the landing page.</p>
+	
+	<p>To change elements in the table, the following SQL query should be executed. <i> <xmp>UPDATE `bachelors` SET `email`='finalemail@address.com' WHERE `age`=39</xmp> </i>However, this had to be executed within the phpMyAdmin site, and even then only when the table elements were visible on the right of the screen. Otherwise, I believe, the SQL operations are conducted on the database as a whole, rather than be filtered to just the <i>bachelors</i> table.</p>
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Welcome Back</h2>
+	<p class="devLogDate">25/9/17</p>
+	<div id="clear"></div>
+	
+	<p>	Eagle eyed observers may notice that the website has aesthetically changed very little over the last five months. There is a very simple explanation for this: I have done no dev work <b> at all </b>. I sort of just did other things with my free time. However, this lax attitude is finally coming to a temporary end, because I got a message from a friend today that motivated me to come back and do some dev work. Below is an exhaustive list of my goals for the next few days, before I inevitably get a little tired of this again, and go back to do some hardware dev.</p>
+	
+	<p>	1. Make the website better</p>
+	
+	<p>	Specifically, I'd like to add a merch store tab (probably not with actual being-able-to-buy-things functionality, but we'll see), make the front end look cleaner (partially achieved with the rounding), allow two card columns when viewed on a PC, neaten the colour scheme, neaten all my .css nonsense, add some backend for me to be able to execute SQL queries without having to log into phpMyAdmin. </p>
+	
+	<p>It's now 1am, so I'll attack the dynamic problem tomorrow. I would like the cards to display without padding being required so that all cards start at the same height. This may require sorting them into columns, but I'm not smart enough (now or when sufficiently rested) to know whether a database can be sorted per user. Heaps of better websites are able to achieve this functionality, so it must be possible. I'd also like to have a clean card, better text. Thin pictures on small screens have text continuing below the base of the image, which I'd like to fix. I also want to add (comment out code partially does this, I need to fold it in) a footer for each card with 'date added', and an upvote button that turns red on over-hover, like the menu tabs. Lots to do. Night all </p>
+	
+	
 </div>
 
 <div id="devLogContainer">
@@ -171,10 +260,6 @@
 
 	<p> After talking to friends at work about this, I woke up at 4am on Tuesday morning and decided to buy the domain name for this site. I went with eHost, because it provided the cheapest hosting I could find. Not expecting significant traffic, bandwidth ceilings weren't super important in my decision making process. I opted for a cPanel setup, so I could really get into the nitty-gritty of the design, but I ran up against the annoying method of uploading files to eHost through the cPanel FTP interface. I was able to <a href="https://www.youtube.com/watch?v=y2WaVhAF9TE">circumvent</a> this by setting up a connection through Filezilla > File > Site Manager. This provides a far better drag-and-drop interface that allows, crucially, multiple files to be queued for upload at once. Cannot recommend it enough. </p>	
 </div>
-
-<div id="footer"></div>
-
-
 
  </body>
  </html>

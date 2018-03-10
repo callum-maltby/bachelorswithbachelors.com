@@ -1,8 +1,11 @@
 body {
+	background-image: url("images/origami_1.jpg");
+	background-attachment: fixed;
+	background-size: cover;
     margin:0 auto;
 	padding: 0;
-	color: black;
-    background-color: white;
+	/*color: black;
+    background-color: white;#F5F5F5;*/
 	font: 15px Century Gothic; 
     text-align: center; /* !!! */
 }
@@ -14,6 +17,7 @@ body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	color: #89867e;
 	background: #fff;
+	
 }
 */
 
@@ -327,7 +331,7 @@ h1 {
 }
 
 h2 {
-    color: #499FB2;
+    color: #F24B4B; /*#A9A9A9;#499FB2;*/
     margin-left: 0px;
 	margin-bottom: 6px;
 }
@@ -347,27 +351,14 @@ p {
 }
 
 section {
-    width: 960px;
+    width: 100%;/*960px;*/
 	align: center;
     /*height: 200px;
     background: aqua; */
     margin-left: auto; 
 	margin-right: auto; 
-    padding: 10px;
+    padding: 0px;
 }
-/*
-div#one {
-    width: 50%;
-    /* height: 200px;
-    background: red; 
-    float: left;
-}
-div#two {
-    margin-left: 15%;
-	float: right;
-    /* height: 200px;
-    background: black; 
-}*/
 
 div#inlineImage {
 	padding-bottom:50px;
@@ -375,14 +366,21 @@ div#inlineImage {
 	align: center;
 }
 
+
 div#bachelorCard {
 	align: center;
-	max-width: 800px;
-	width = 100%;
-	background-color: #e6e6e6;
-	padding: 10px;
-    /* margin: auto; */
-	margin: 0 auto 10px;
+	max-width: 400px;
+	width: 100%;
+	background-color: #F5F5F5;
+	padding: 0px;
+    /* padding: 10px;
+	margin: auto; */
+	margin: 0 auto 20px;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	float: center;
+	opacity: 0.9;
 }
 
 div#bachelorLeft {
@@ -391,6 +389,7 @@ div#bachelorLeft {
 	display:inline-block;
 	vertical-align: middle;
     height: 100%;
+	border-radius:25px;
 }
 
 div#bachelorRight {
@@ -404,10 +403,25 @@ div#bachelorRight {
 	vertical-align: middle;
 }
 
+div#merchCard {
+	align: center;
+	max-width: 760px;
+	width = 100%;
+	background-color: #F5F5F5;
+	padding: 0px;
+    padding: 0px;
+	/* margin: auto; */
+	margin: 0 auto 20px;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	opacity: 0.9;
+}
+
 #devLogContainer {
 	align: left;
 	text-align: left;
-    background-color: #e6e6e6;
+    background-color: #F5F5F5;/*#e6e6e6;*/
 	padding: 30px;
 	padding-bottom: 20px;;
 	padding-top: 10px;
@@ -415,7 +429,23 @@ div#bachelorRight {
 	margin: 0 auto 10px;
 	max-width: 800px;
     width = 95%;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	opacity: 0.9;
 }
+
+/*
+img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); 
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100); 
+}
+*/
 
 .devLogTitle {
 	float:left;
@@ -455,21 +485,25 @@ div#monologueContainer {
 }
 
 div#leadingText {
-	position: fixed;
-    /* center the element */
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    /* give it dimensions */
-    height: auto;
-    max-width: 960px;
-	width = 95%;
-	margin: 0 auto;
-	clear: both;
-	position: relative;
-	padding-left: 20px;
-	padding-right: 20px;
+	align: left;
+	text-align: center;
+    background-color: #F5F5F5;/*#e6e6e6;*/
+	padding: 30px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+    /* margin: auto; */
+	margin: 0 auto 10px;
+	max-width: 800px;
+    width = 95%;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	margin-top: 10px;
+	opacity: 0.9;
+}
+
+xmp{
+    white-space: pre-wrap;
 }
 
 .quotes {

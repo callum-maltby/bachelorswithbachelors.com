@@ -10,39 +10,26 @@
 <body>
 <div id="menuBackground">
     <div id="menuContainer">
-    <!--<label for="show-menu" class="show-menu">Show Menu</label>
-    <input type="checkbox" id="show-menu" role="button">-->
-            
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
 			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
 			<li><a href="404page.php">Testimonials</a></li>
+			<li><a href="merchandise.php">Merchandise</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
-			<!--
-        <li>
-            <a href="#">Portfolio ￬</a>
-                <ul class="hidden">
-                    <li><a href="#">Photography</a></li>
-                    <li><a href="#">Web & User Interface Design</a></li>
-                     <li><a href="#">Illustration</a></li>
-                </ul>
-            </li>
-		-->
         </ul>
-	<!--</input>-->
     </div>
 	<div id="clear"></div>
  </div>
  
- <div align = "center">
-	<h1> 404 Page Not Found. </h1>
-	<p> Whoops a daisy, looks like the page you're after doesn't exist. Were you looking for this? </p>
-	
-</div>
-<div align = "center">
-	<a href="mono1.html">
-		<img src="images/handsomeCal.JPG" alt="cal2" style="width:400px;height:auto;">
-	</a>
+ <div id="leadingText">
+	 <div align = "center">
+		<h1> 404 Page Not Found. </h1>
+		<p> Whoops a daisy, looks like the page you're after doesn't exist. Were you looking for this? </p>
+		
+	</div>
+	<div align = "center">
+		<img src="images/handsomeCal_small.jpg" alt="handsomeCal_small" style="width:400px;height:auto;">
+	</div>
 </div>
 
  </body>

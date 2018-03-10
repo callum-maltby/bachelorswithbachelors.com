@@ -1,24 +1,67 @@
-    <!DOCTYPE html>
-<html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>bachelorswithbachelors.com </title>
-		<link rel="stylesheet" type="text/css" href="myStyle.css" />
-		
-		<script src="js/modernizr.custom.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	</head>
-	
-	<script type="text/javascript" src="jquery.js"></script>
-	
-<body>
-		
-		<div id = "buttons" align="center">
-						<button class="btn btn-3 btn-left" onclick="hideButtons();">Swipe Left</button>
-						<button class="btn btn-3 btn-right" onclick="showDetails('detailsDiv');">Swipe Right</button>
-					</div>
-    
-    </body>
-    </html>
+<?php
+/**
+ * Sample PHP code to use reCAPTCHA V2.
+ *
+ * @copyright Copyright (c) 2014, Google Inc.
+ * @link      http://www.google.com/recaptcha
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+require_once "recaptchalib.php";
+
+// Register API keys at https://www.google.com/recaptcha/admin
+$siteKey = "6LfS1EsUAAAAAG_moRO8w18-mOG5x4FgnnLptjqG";
+$secret = "6LfS1EsUAAAAAMNt2uN1U36xVmID7WmS-9y_5KCr";
+// reCAPTCHA supported 40+ languages listed here: https://developers.google.com/recaptcha/docs/language
+$lang = "en";
+
+// The response from reCAPTCHA
+$resp = null;
+// The error code from reCAPTCHA, if any
+$error = null;
+
+$reCaptcha = new ReCaptcha($secret);
+
+// Was there a reCAPTCHA response?
+if ($_POST["g-recaptcha-response"]) {
+    $resp = $reCaptcha->verifyResponse(
+        $_SERVER["REMOTE_ADDR"],
+        $_POST["g-recaptcha-response"]
+    );
+}
+?>
+<html>
+  <head><title>reCAPTCHA Example</title></head>
+  <body>
+<?php
+if ($resp != null && $resp->success) {
+    echo "You got it!";
+}
+?>
+    <form action="?" method="post">
+      <div class="g-recaptcha" data-sitekey="<?php echo $siteKey;?>"></div>
+      <script type="text/javascript"
+          src="https://www.google.com/recaptcha/api.js?hl=<?php echo $lang;?>">
+      </script>
+      <br/>
+      <input type="submit" value="submit" />
+    </form>
+  </body>
+</html>

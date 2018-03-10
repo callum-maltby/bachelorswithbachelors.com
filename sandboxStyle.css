@@ -1,4 +1,13 @@
-/* General Demo Style */
+body {
+    margin:0 auto;
+	padding: 0;
+	color: black;
+    background-color: white;/*#F5F5F5;*/
+	font: 15px Century Gothic; 
+    text-align: center; /* !!! */
+}
+
+/* General Demo Style 
 @import url(//fonts.googleapis.com/css?family=Lato:300,400,700);
 
 body {
@@ -6,8 +15,9 @@ body {
 	color: #89867e;
 	background: #fff;
 }
+*/
 
-
+/* Styles for bachelor button */
 
 .no-touch .note-touch {
 	display: none;
@@ -50,21 +60,6 @@ body {
 	font-weight: bold;
 }
 
-.container > section.info p {
-	color: #fff;
-	font-size: 1.3em;
-	font-weight: 300;
-}
-
-.container > section.info p a {
-	color: #fff;
-	font-weight: 700;
-}
-
-.container > section.info p a:hover {
-	color: #0c69a4;
-}
-
 .btn {
 	border: none;
 	font-family: inherit;
@@ -72,9 +67,9 @@ body {
 	color: inherit;
 	background: none;
 	cursor: pointer;
-	padding: 25px 80px;
+	padding: 1px 1px;
 	display: inline-block;
-	margin: 15px 30px;
+	margin: 5px 5px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
@@ -117,23 +112,23 @@ body {
 	top: 0;
 	line-height: 3;
 	font-size: 140%;
-	width: 60px;
+	/*width: 60px;*/
 }
 
 
-/* Button 3e */
-.btn-3e {
-	padding: 25px 120px 25px 60px;
+/* Swipe left button */
+.btn-left {
+	padding: 30px 30px 30px 30px;
 	overflow: hidden;
 }
 
-.btn-3e:before {
+.btn-left:before {
 	left: auto;
 	right: 10px;
 	z-index: 2;
 }
 
-.btn-3e:after {
+.btn-left:after {
 	width: 30%;
 	height: 200%;
 	background: rgba(255,255,255,0.1);
@@ -151,6 +146,523 @@ body {
 	transform: rotate(-20deg);
 }
 
-.btn-3e:hover:after {
-	width: 40%;
+.btn-left:hover:after {
+	width: 70%;
+}
+
+/* Swipe right button */
+.btn-right {
+	padding: 30px 30px 30px 30px;
+	overflow: hidden;
+	align: right;
+}
+
+.btn-right:before {
+	left: auto;
+	right: -10px;
+	z-index: 2;
+}
+
+.btn-right:after {
+	width: 70%;
+	height: 200%;
+	background: rgba(255,255,255,0.1);
+	z-index: 1;
+	right: 0;
+	top: 0;
+	margin: -5px 0 0 -5px;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: rotate(-20deg);
+	-moz-transform-origin: 0 0;
+	-moz-transform: rotate(-20deg);
+	-ms-transform-origin: 0 0;
+	-ms-transform: rotate(-20deg);
+	transform-origin: 0 0;
+	transform: rotate(-20deg);
+}
+
+.btn-right:hover:after {
+	width: 30%;
+}
+
+
+#menuBackground {
+    background:#2f3036;
+    width:100%;
+    /*height:50px;*/
+    text-align: center;
+}
+#menuContainer {
+    text-align: center;
+}
+/*Strip the ul of padding and list styling*/
+ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+/*Create a horizontal list with spacing*/
+li {
+    display:inline-block;
+    vertical-align: top;
+	margin:0;
+}
+
+/*Style for menu links*/
+li a {
+	padding-right:20px;
+	padding-left:20px;
+    display:block;
+    /*min-width:150px;*/
+    height:50px;
+    text-align:center;
+    line-height:50px;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:#fff;
+    background:#2f3036;
+    text-decoration:none;
+    font-size: 1rem;
+    transition:.5s;
+}
+
+/*Hover state for top level links*/
+li:hover a {
+    background:#F24B4B;
+	color:#fff;
+	-webkit-top:12px;
+}
+
+/*Style for dropdown links*/
+li:hover ul a {
+    background:#f3f3f3;
+    color:#2f3036;
+    height:40px;
+    line-height:40px
+}
+
+/*Hover state for dropdown links*/
+li:hover ul a:hover {
+    background:#19c589;
+    color:#fff;
+	-webkit-top:12px;
+}
+
+/*Hide dropdown links until they are needed*/
+li ul {
+    position: absolute;
+    display:none;
+}lu ul
+
+/*Make dropdown links vertical*/
+li ul li {
+    display:block;
+}
+
+/*Prevent text wrapping*/
+li ul li a {
+    width:auto;
+    min-width:140px;
+    padding: 0 20px
+}
+
+/*Display the dropdown on hover*/
+ul li a:hover + .hidden,.hidden:hover {
+    display:block;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-decoration:none;
+    color:#fff;
+    background:#19c589;
+    text-align:center;
+    padding:16px 0;
+    display:none;
+    width:100%; /* !important */
+}
+
+/*Hide checkbox*/
+input[type=checkbox] {
+    display:none
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu {
+    display:block;
+    margin:0 auto;
+}
+
+/*Responsive Styles*/
+/*
+@media screen and (max-width : 500px) {
+    //Make dropdown links appear inline
+    ul {
+        position:static;
+        display:none;
+        white-space: initial;
+    }
+
+    //Create vertical spacing
+    li {
+        margin-bottom:1px
+    }
+
+    //Make all menu links full width
+    ul li,li a {
+        width:100%
+    }
+
+    //Display 'show menu' link
+    .show-menu {
+        display:block
+    }
+}
+*/
+
+h1 {
+    color: #F24B4B;
+    margin-left: 20px;
+}
+
+h2 {
+    color: #F24B4B; /*#A9A9A9;#499FB2;*/
+    margin-left: 0px;
+	margin-bottom: 6px;
+}
+
+p {
+	color: black;
+	align: center;
+	margin-left: auto; 
+	margin-right: auto; 
+}
+
+.monologue {
+	/* color = maroon; */
+	color = #F24B4B;
+	font: 40px Century Gothic; 
+	margin-left: 2cm; */
+}
+
+section {
+    width: 100%;/*960px;*/
+	align: center;
+    /*height: 200px;
+    background: aqua; */
+    margin-left: auto; 
+	margin-right: auto; 
+    padding: 0px;
+}
+
+div#inlineImage {
+	padding-bottom:50px;
+	margin: 0 auto;
+	align: center;
+}
+
+
+div#bachelorCard {
+	align: center;
+	max-width: 500px;
+	width: 100%;
+	background-color: #F5F5F5;
+	padding: 0px;
+    /* padding: 10px;
+	margin: auto; */
+	margin: 0 auto 20px;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	float: center;
+}
+
+div#bachelorLeft {
+	width: 37.5%;
+    float: left;
+	display:inline-block;
+	vertical-align: middle;
+    height: 100%;
+	border-radius:25px;
+}
+
+div#bachelorRight {
+    width: 50%;
+    float: right;
+    height: auto;
+	padding-left: 2%;
+	padding-right: 2%;
+	text-align: left;
+	display:inline-block;
+	vertical-align: middle;
+}
+
+div#merchCard {
+	align: center;
+	max-width: 760px;
+	width = 100%;
+	background-color: #F5F5F5;
+	padding: 0px;
+    padding: 0px;
+	/* margin: auto; */
+	margin: 0 auto 20px;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+}
+
+#devLogContainer {
+	align: left;
+	text-align: left;
+    background-color: #F5F5F5;/*#e6e6e6;*/
+	padding: 30px;
+	padding-bottom: 20px;;
+	padding-top: 10px;
+    /* margin: auto; */
+	margin: 0 auto 10px;
+	max-width: 800px;
+    width = 95%;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+}
+
+.devLogTitle {
+	float:left;
+}
+
+.devLogDate {
+	float:right;
+}
+
+#clear {
+    clear: both;
+}
+
+div#footer {
+	background-color: white;
+	height: 50px;
+}
+
+div#monologueContainer {
+	/*position: fixed;
+     center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: auto;
+	min-height: 100px;
+	max-width: 960px;
+	width = 80%;
+    margin: 0 auto;
+	clear: both;
+	position: relative;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div#leadingText {
+	position: fixed;
+    /* center the element */
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    /* give it dimensions */
+    height: auto;
+    max-width: 960px;
+	width = 95%;
+	margin: 0 auto;
+	clear: both;
+	position: relative;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+xmp{
+    white-space: pre-wrap;
+}
+
+.quotes {
+	display: none;
+}​
+
+
+
+.bannerMessage {
+	display: none;
+}​
+
+.fastQuotes {
+	display: none;
+}​
+
+/* List styling */
+.featureList, .featureList ul {
+  margin-top: 0;
+  padding-left: 2em;
+  padding-bottom: 20px;
+  list-style-type: none;
+  display: block;
+}
+.featureList li {
+	display: block;
+	list-style-type: disc;
+    text-indent: -1em;
+    padding-left: 1em;
+}
+.featureList li:before {
+  content: "\2022";
+  font-weight: bold;
+}
+.featureList li.tick:before {
+  content: "\2713";
+  color: darkgreen;
+}
+.featureList li.cross:before {
+  content: "\2717";
+  color: crimson;
+}
+
+/* For form submission */
+.signupForm{
+    max-width:400px;
+    margin:50px auto;
+    background:#fff;
+    border-radius:2px;
+    padding:20px;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+.signupForm h1{
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0px 0px 20px 0px;
+    color: #5C5C5C;
+    font-size:x-large;
+}
+.signupForm ul{
+    list-style:none;
+    padding:0;
+    margin:0;   
+}
+.signupForm li{
+    display: block;
+    padding: 9px;
+    border:1px solid #DDDDDD;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
+.signupForm li:last-child{
+    border:none;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.signupForm li > label{
+    display: block;
+    float: left;
+    margin-top: -19px;
+    background: #FFFFFF;
+    height: 14px;
+    padding: 2px 5px 2px 5px;
+    color: #B9B9B9;
+    font-size: 14px;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.signupForm input[type="text"],
+.signupForm input[type="date"],
+.signupForm input[type="datetime"],
+.signupForm input[type="email"],
+.signupForm input[type="number"],
+.signupForm input[type="search"],
+.signupForm input[type="time"],
+.signupForm input[type="url"],
+.signupForm input[type="password"],
+.signupForm textarea,
+.signupForm select 
+{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    display: block;
+    outline: none;
+    border: none;
+    height: 25px;
+    line-height: 25px;
+	font: 15px Century Gothic;
+    /*font-size: 16px;*/
+    padding: 0;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: Georgia, "Times New Roman", Times, serif;*/
+}
+.signupForm input[type="text"]:focus,
+.signupForm input[type="date"]:focus,
+.signupForm input[type="datetime"]:focus,
+.signupForm input[type="email"]:focus,
+.signupForm input[type="number"]:focus,
+.signupForm input[type="search"]:focus,
+.signupForm input[type="time"]:focus,
+.signupForm input[type="url"]:focus,
+.signupForm input[type="password"]:focus,
+.signupForm textarea:focus,
+.signupForm select:focus 
+{
+}
+.signupForm li > span{
+    background: #F3F3F3;
+    display: block;
+    padding: 3px;
+    margin: 0 -9px -9px -9px;
+    text-align: center;
+    color: #C0C0C0;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-size: 11px;
+}
+.signupForm textarea{
+    resize:none;
+}
+.signupForm input[type="submit"],
+.signupForm input[type="button"]{
+    background: #F24B4B;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 3px solid #F24B4B;
+    border-radius: 3px;
+    color: white;
+}
+.signupForm input[type="submit"]:hover,
+.signupForm input[type="button"]:hover{
+    background: #db4646;
+    color:white;
+}
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+
+.row {
+ -moz-column-width: 25em;
+ -webkit-column-width: 25em;
+ -moz-column-gap: 1em;
+ -webkit-column-gap:1em; 
+  
+}
+
+.row > .col-md-4 {
+ display: inline-block;
+ padding:  .33rem;
+ width:  100%; 
+ float:none;
+}
+
+.well {
+ position:relative;
+ display: block;
 }
