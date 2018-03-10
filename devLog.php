@@ -65,7 +65,8 @@
 		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
 		<li> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
 		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
-		<li> Improve the image upload button aesthetic in <i>becomeBachelor.php</i></li>
+		<li> Improve the image upload button aesthetic in <i>becomeBachelor.php</i> and center the captcha on different screen sizes</li>
+		<li> Remove the leading text div once the quotes have concluded</li>
 		<li class="cross"> Give up on this pointless venture</li>
 	  <!--
 		<ul>
@@ -78,6 +79,26 @@
 	  
 	</ul>  
 </div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Deciding which profiles to display</h2>
+	<p class="devLogDate">11/3/18</p>
+	<div id="clear"></div>
+	
+	<p>I've finally come to the point where I can begin to lay down groundwork for curating profiles. To be honest, removing profiles won't be of operational concern to me owing the truism of 'beggars can't be choosers', but it will be an interesting technical exercise. </p>
+	
+	<p> When the site was being spammed, I was lucky in that the uploaded junk profiles always gave their age as 0. I was able to bulk-remove these profiles by intermittently executing:</p>
+	
+	<i><xmp>DELETE FROM bachelors WHERE age = 0 </xmp></i>
+	
+	<p>Had I been clever about it, I could have caused that query to execute upon every call of <i>insertBachelor.php</i> but that's water under the bygones. Instead, the value of the <i>display</i> row element will control how profiles are displayed. In time, I may allow frequent upvoting to increase a profile's <i>display</i> rank, and hence the profiles will sorted against their <i>display</i> rank before being displayed. Negative or zero ranks will result in the profile not being displayed, as at present. This is accomplished by pulling the <i>display</i> field from the result, then using it in an <i>if</i> statement. The profile can be skipped by executing a <i>continue</i>. For the time being, all profiles were given a <i>display</i> value of one, the code below applies that to the 19yo subset of the table. For now, I just set <i>display</i> to 1 if the profile has a non-nil image filename.
+	
+	<i><xmp>UPDATE bachelors SET display=1 WHERE age=19</xmp></i>
+	
+	<p>This is laying the groundwork for my backend. I'd like to have a secure side (password protection being as-yet untried) with an extended version of <i>index.php</i> displayed. I want to be able to edit fields and have a mechanism to set a users <i>display</i> metric very negative, so significant upvoting is required to get it to display again (like veto overriding). These button callbacks will have to execute queries, but that shouldn't be too hard. I might index profiles based off their image name, since that is now (with the inclusion of timestamping) unique.</p>
+</div>
+
+
 
 <div id="devLogContainer">
 	<h2 class="devLogTitle">Captchas and Stopping the <del>Boats</del>Spam</h2>
@@ -99,9 +120,9 @@
 	<p>My buddy Joe works in an office that embraces the idea of work sprints: short achieveable tasks that can be completed in a timeframe that is within reach. In that spirit, I would like to: </p>
 	
 	<ul class="featureList">
-		<li> Implement a Captcha and re-enable profile uploads. Timestamp uploaded images</li>
+		<li class="tick"> Implement a Captcha and re-enable profile uploads. Timestamp uploaded images</li>
 		<li> Fix the Chrome cut-off issue</li>
-		<li> Stop some pages from zooming out</li>
+		<li class="tick"> Stop some pages from zooming out</li>
 		<li> Investigate setting up Amazon link-in store</li>
 		<li class="tick"> Make things load faster, but not using massive .jpgs</li>
 		<li class="tick""> Set up Git and Github, find a way to not upload my SQL passwords in so doing</li>

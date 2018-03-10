@@ -33,8 +33,7 @@
 </div>
 
 <div id="devLogContainer" style="background:white;opacity:1;max-width:400px">
-<!--
-This is still insecure, but ceebs-->
+
 <form class="signupForm" action="insertBachelor.php" method="post" enctype="multipart/form-data">
 <!--<form class="signupForm" method="post" enctype="multipart/form-data">-->
 	
@@ -77,7 +76,7 @@ This is still insecure, but ceebs-->
 	<li>
 		<label for="imageUpload">Image</label>
 		<input type="file" name="imageUpload">
-		<span>Upload an image of yourself</span>
+		<span>Upload an image of yourself or the profile won't be displayed</span>
 	</li>
 	<!--<div style="text-align:center">
 		<div style="margin-bottom:20px;align:center;display:inline-block;transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:18 0;" class="g-recaptcha" data-sitekey="6Ld41ksUAAAAABZ3GRzD3assUlQA5KgbZ5rB8DD5"></div>

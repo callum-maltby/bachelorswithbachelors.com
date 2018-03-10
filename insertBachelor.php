@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>bachelorswithbachelors.com </title>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<title>bachelorswithbachelors.com </title>
 		
-		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-		<link rel="stylesheet" type="text/css" href="myStyle.css" />
-		<script src="js/modernizr.custom.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	</head>
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<link rel="stylesheet" type="text/css" href="myStyle.css" />
+	<script src="js/modernizr.custom.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
 
 <?php
 $captcha;
@@ -29,16 +29,11 @@ $responseKeys = json_decode($response,true);
 if(intval($responseKeys["success"]) !== 1) {
     echo '<div id="leadingText"><h2>Spammers are not especially welcome sorry</h2></div>';
 } else {
-    // Your code here to handle a successful verification
- 
-	/* Attempt MySQL server connection. Assuming you are running MySQL
-	server with default setting (user 'root' with no password) */
+	// Action taken on successful captcha challenge
 	$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
-	//$link = mysqli_connect("localhost", "callum", "callum3141", "bachelorswithbachelors");
-	//$link = mysqli_connect("localhost", "root", "", "bachelo1_bachelorswithbachelors");
 
 	// Check connection
-	if($link === false){
+	if($link === false) {
 		die("ERROR: Could not connect. " . mysqli_connect_error());
 	}
 	 
@@ -50,34 +45,32 @@ if(intval($responseKeys["success"]) !== 1) {
 	$mobileNumber = mysqli_real_escape_string($link, $_REQUEST['mobileNumber']);
 	$email = mysqli_real_escape_string($link, $_REQUEST['email']);
 	$bio = mysqli_real_escape_string($link, $_REQUEST['bio']);
+	$display = 1; 
+	if ( basename($_FILES["imageUpload"]["name"]) == "") {
+		$display = 0;
+	}
 
+	// Timestamp image name
 	$target_dir = "uploads/";
-	$target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+	$target_file = $target_dir . date('d-m-Y_H-i-s') . basename($_FILES["imageUpload"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 	if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
 		//echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
 	} else {
-		//echo "Sorry, there was an error uploading your file.";
+		echo "Sorry, there was an error uploading your file.";
 	}
 
-	$image=basename( $_FILES["imageUpload"]["name"]); // used to store the filename in a variable
+	$image = date('d-m-Y_H-i-s') . basename( $_FILES["imageUpload"]["name"]); // concatenate timestamp onto original image name
 
-	// attempt insert query execution
-	//$sql = "INSERT INTO persons (first_name, last_name, email) VALUES ('$first_name', '$last_name', '$email')";
-	$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$image')";
-	mysqli_query($link, $sql);
+	// Attempt insert query execution
+	$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, display, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$display', '$image')";
+	//mysqli_query($link, $sql);
 
-	/*
-	if(mysqli_query($link, $sql)){
-		header('Location: /');
-		//echo "Records added successfully.";
-	} else{
-		header('Location: /');
-		//echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+	if(!mysqli_query($link, $sql)){
+		echo "ERROR: Not able to execute $sql. " . mysqli_error($link);
 	}
-	*/
 	// Sort table to show most recent entry first
 	$sortQuery = "ALTER TABLE bachelors ORDER BY dateTimeAdded DESC";
 	mysqli_query($link, $sortQuery);
@@ -87,8 +80,6 @@ if(intval($responseKeys["success"]) !== 1) {
 	mysqli_close($link);
 }
 
-header('Location: http://www.bachelorswithbachelors.com');
-//exit;
-   
+header('Location: /');
 
 ?>
