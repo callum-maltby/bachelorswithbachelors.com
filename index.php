@@ -30,7 +30,7 @@
     </div>
 	<div id="clear"></div>
 </div>
- 
+
  <!-- Fading elevator-pitch quotes -->
 <div id="leadingText">
     <span style = "vertical-align:middle">

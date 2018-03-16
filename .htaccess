@@ -1,9 +1,1 @@
-AuthName "Restricted Area" 
-AuthType Basic 
-AuthUserFile C:\Users\Callum\Dropbox\bachelorswithbachelors.com\.htpasswd 
-AuthGroupFile /dev/null 
-<Files secureSide.php>
-require valid-user
-</Files>
-
-ErrorDocument 404 http://www.bachelorswithbachelors.com/404page.php
+ErrorDocument 404 /404page.php

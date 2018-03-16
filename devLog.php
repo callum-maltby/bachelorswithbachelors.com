@@ -21,7 +21,7 @@
 			<li><a href="404page.php">Testimonials</a></li>
 			<li><a href="merchandise.php">Merchandise</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
-			<li><a href="secureSide.php">Secure Side</a></li>
+			<li><a href="secure/secureSide.php">Secure Side</a></li>
         </ul>
 	</input>
     </div>
@@ -66,6 +66,7 @@
 		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
 		<li class="tick"> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
 		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
+		<li> Make index.php text as bold as the devLog</i>
 		<li> Improve the image upload button aesthetic in <i>becomeBachelor.php</i> and center the captcha on different screen sizes</li>
 		<li> Remove the leading text div once the quotes have concluded</li>
 		<li class="cross"> Give up on this pointless venture</li>
@@ -94,6 +95,12 @@
 	<p>The idea is to generate a few new files, <i>.htaccess</i> which contains details of which file to password protect and where the username and password are stored, and <i>.htpasswd</i> which contains a hashed version of the password itself. The password will have to be entered each time the browser is reopened, and access to the secureSide cannot be obtained simply by typing in the address. So, job done. The only difficulty is the difference in addresses between my Apache server and the remote server, so I may have to make custom files for remote and local. Since I don't plan on adding much password protected functionality yet, this isn't a problem.</p>
 	
 	<p>Maybe this secureSide can input a function for me to be able to put up a text box on the main page as a banner. Things to think about. </p>
+	
+	<p>The method above worked out great for file protection on localhost, however when transposed across to the remote server I had a bunch of trouble, even after determining the file address by executing a php query:
+	
+	<i><xmp>echo $_SERVER['DOCUMENT_ROOT'];</xmp></i>
+	
+	<p>In the end I got lazy, moved the <i>secureSide.php</i> into a <i>secure</i> folder, then used the cPanel tools to protect this folder (since file-specific protection was not enabled). This might actually make it easier, since I'll just have to add other <i>.php</i> files to this folder to apply password protection. The cPanel tool generated a password hash and stored it in <i>/home/my_username/.htpasswds/public_html</i>. I ended up removing all my local password protection, which entailed reverting <i>.htaccess</i> to just contain the 404 redirection, and deleting <i>httpd.conf</i>.
 	
 </div>
 
