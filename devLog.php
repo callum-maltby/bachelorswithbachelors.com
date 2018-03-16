@@ -100,7 +100,14 @@
 	
 	<i><xmp>echo $_SERVER['DOCUMENT_ROOT'];</xmp></i>
 	
-	<p>In the end I got lazy, moved the <i>secureSide.php</i> into a <i>secure</i> folder, then used the cPanel tools to protect this folder (since file-specific protection was not enabled). This might actually make it easier, since I'll just have to add other <i>.php</i> files to this folder to apply password protection. The cPanel tool generated a password hash and stored it in <i>/home/my_username/.htpasswds/public_html</i>. I ended up removing all my local password protection, which entailed reverting <i>.htaccess</i> to just contain the 404 redirection, and deleting <i>httpd.conf</i>.
+	<p>In the end I got lazy, moved the <i>secureSide.php</i> into a <i>secure</i> folder, then used the cPanel tools to protect this folder (since file-specific protection was not enabled). This might actually make it easier, since I'll just have to add other <i>.php</i> files to this folder to apply password protection. The cPanel tool generated a password hash and stored it in <i>/home/my_username/.htpasswds/public_html</i>. I ended up removing all my local password protection, which entailed reverting <i>.htaccess</i> to just contain the 404 redirection, and deleting <i>httpd.conf</i>. </p>
+	
+	<p>Now, with a secure side, the world is my oyster. As a small testbed, I generated another table in my local and remote databases, and had a form execute an SQL <i>INSERT</i> into a row of thar <i>messages</i> table. Back on <i>index.php</i>, an SQL <i>SELECT</i> query was attempting to pull out rows from the table. If any are present, their title and message are wrapped in a devLog div and displayed, along with a removal button. This, for the sake of laziness, is the form below:</p>
+	
+	<i><xmp><form align="right" action="removeMessage.php" method="post" enctype="multipart/form-data">
+			<input type="submit" value="Remove Message"></xmp></i>
+			
+	<p>This just called a php code which executed a <i>DELETE</i> query from the table.</p>
 	
 </div>
 

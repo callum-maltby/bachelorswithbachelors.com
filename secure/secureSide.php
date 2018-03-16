@@ -7,7 +7,7 @@
 	<title>bachelorswithbachelors.com </title>
 		
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	<link rel="stylesheet" type="text/css" href="myStyle.css" />
+	<link rel="stylesheet" type="text/css" href="/myStyle.css" />
 	<script src="js/modernizr.custom.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery.js"></script>
@@ -34,10 +34,12 @@
  
  <!-- Fading elevator-pitch quotes -->
 <div id="leadingText">
-	<h2 class="devLogTitle">Secure Side YAY</h2>
+	<h2 class="devLogTitle">Secure Side</h2>
+	<p>More functionality coming soon to a <i>secureSide.php</i> near you</p>
 </div>
 
 <div id="devLogContainer" style="background:white;opacity:1;max-width:400px">
+<h2 class="devLogTitle">Messages written here are displayed on <i>index.php</i></h2>
 
 <form class="signupForm" action="/insertMessage.php" method="post" enctype="multipart/form-data">
 	<ul>
