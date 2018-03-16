@@ -22,10 +22,10 @@
     <div id="menuContainer">
 		<ul id="menu">
 			<li><a href="/">Home</a></li>
-			<li><a href="becomeBachelor.php">Become a Bachelor</a></li>
-			<li><a href="404page.php">Testimonials</a></li>
-			<li><a href="merchandise.php">Merchandise</a></li>
-			<li><a href="devLog.php">Development Log</a></li>
+			<li><a href="/becomeBachelor.php">Become a Bachelor</a></li>
+			<li><a href="/404page.php">Testimonials</a></li>
+			<li><a href="/merchandise.php">Merchandise</a></li>
+			<li><a href="/devLog.php">Development Log</a></li> 
         </ul>
     </div>
 	<div id="clear"></div>
@@ -37,73 +37,21 @@
 	<h2 class="devLogTitle">Secure Side YAY</h2>
 </div>
 
-<div class="row" style="padding-top:20px">
-    <div class="col s12 cards-container">
-	
-<?php
-// Check connection
-$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
-if ($link == false) {
-	echo("ERROR: Could not connect. " . mysqli_connect_error());
-}
+<div id="devLogContainer" style="background:white;opacity:1;max-width:400px">
 
-if($result = $link->query("SELECT name,age,degree,location,mobileNumber,email,bio,image,display,dateTimeAdded FROM bachelors ")) {
-    if($result->num_rows > 0) {
-		while($row = $result->fetch_object()) {
-			if ($row->display <= 0) {
-				//$result->free();
-				continue;
-			}
-?>
-			
-		<div id="bachelorCard">
-<?php 
-			list($width, $height) = getimagesize("uploads/".$row->image."");
-			if ($width > 0.7*$height) { // Picture at top
-			echo "<img src='uploads/".$row->image."' / width=100%;opacity:1;height=auto;image-orientation: from-image>";
-?>
-			<h2 align="center"> <?php echo $row->name; ?> <br><br> </h2>
-			<p> Age: <?php echo $row->age; ?></p>
-			<p> University Degree/s: <?php echo $row->degree; ?></p>
-			<p> Location: <?php echo $row->location; ?></p>
-			<p> Brief Bio: <?php echo $row->bio; ?></p>
-			<p> Email: <?php echo $row->email; ?></p>
-			<p> Mobile Number: <?php echo $row->mobileNumber; ?></p>
-<?php
-			} else { // picture on left
-?>
-			<div id="bachelorLeft">
-			<!-- echo "<img src='uploads/".$row->image."' />"; -->
-<?php
-				echo "<img src='uploads/".$row->image."' / width=100%;height=auto;image-orientation: from-image; border-radius:25px>";
-?>
-				<!--<img src="uploads/"".jpg" alt="handsomeCal" style="width:100%;height:auto;vertical-align:middle;"> -->
-			</div>
-			<div id="bachelorRight">
-				<h2 align="center"> <?php echo $row->name; ?> <br><br> </h2>
-				<p> Age: <?php echo $row->age; ?></p>
-				<p> University Degree/s: <?php echo $row->degree; ?></p>
-				<p> Location: <?php echo $row->location; ?></p>
-				<p> Brief Bio: <?php echo $row->bio; ?></p>
-				<p> Email: <?php echo $row->email; ?></p>
-				<p> Mobile Number: <?php echo $row->mobileNumber; ?></p>
-			</div>
-			<!--<div id="clear"></div>-->
-<?php
-			}
-?>
-
-		</div>
-
-<?php          
-		}	
-		$result->free();
-    } else {
-		echo '<div id="leadingText"><h2>No records in database\n</div>';
-	}
-} else {
-	echo '<div id="leadingText"><h2>Unable to access database\n</div>';
-}
-?>
-	</div>
+<form class="signupForm" action="/insertMessage.php" method="post" enctype="multipart/form-data">
+	<ul>
+	<li>
+		<label for="title">Title</label>
+		<input type="text" name="title" maxlength="100">
+		<span>Enter message title</span>
+	</li>
+	<li>
+		<label for="message">Message</label>
+		<input type="text" name="message" maxlength="1000">
+		<span>Enter your message</span>
+	</li>
+	<input type="submit" value="Submit">
+	</ul>
+</form>
 </div>

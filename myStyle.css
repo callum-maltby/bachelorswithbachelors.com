@@ -502,6 +502,24 @@ div#leadingText {
 	opacity: 0.9;
 }
 
+div#quoteBox {
+	align: left;
+	text-align: center;
+    background-color: #F5F5F5;/*#e6e6e6;*/
+	padding: 30px;
+	padding-bottom: 20px;
+	padding-top: 10px;
+    /* margin: auto; */
+	margin: 0 auto 10px;
+	max-width: 800px;
+    width = 95%;
+	border-radius: 15px;
+    border: 1px solid #DCDCDC;
+	overflow: hidden;
+	margin-top: 10px;
+	opacity: 0.9;
+}
+
 xmp{
     white-space: pre-wrap;
 }
@@ -662,4 +680,6 @@ xmp{
     background: #db4646;
     color:white;
 }
+
+
 

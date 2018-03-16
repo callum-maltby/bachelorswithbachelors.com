@@ -50,6 +50,8 @@ $(function() {
 });
 */
 
+
+
 $(document).ready(function(){
 	$('#page_effect').fadeIn(5000);
 	$('#page_effect').fadeOut(5000);

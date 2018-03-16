@@ -47,10 +47,7 @@
     <h2 class="quotes">bachelorswithbachelors.com</h2>
     <h2 class="quotes">Feel free to browse this batch:</h2>
     </span>
-</div>
-
-<div class="row" style="padding-top:20px">
-    <div class="col s12 cards-container">
+</div> 
 	
 <?php
 // Check connection
@@ -59,6 +56,40 @@ if ($link == false) {
 	echo("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
+// Print leading messages if present
+if($result = $link->query("SELECT title, message, display FROM messages ")) {
+    if($result->num_rows > 0) {
+		while($row = $result->fetch_object()) {
+			if ($row->display <= 0) {
+				//$result->free();
+				continue;
+			}
+?>
+			
+		<div id="leadingText">
+			<h2 align="center"> <?php echo $row->title; ?> <br><br> </h2>
+			<p> <?php echo $row->message; ?></p>
+			<form align="right" action="removeMessage.php" method="post" enctype="multipart/form-data">
+			<input type="submit" value="Remove Message">
+			</ul>
+		</div>
+
+<?php          
+		}	
+		$result->free();
+    } else {
+		//echo '<div id="leadingText"><h2>No records in database\n</div>';
+	}
+} else {
+	echo '<div id="leadingText"><h2>Unable to access database\n</div>';
+}
+?>
+
+<div class="row" style="padding-top:20px">
+    <div class="col s12 cards-container">
+	
+<?php
+// Display bachelors
 if($result = $link->query("SELECT name,age,degree,location,mobileNumber,email,bio,image,display,dateTimeAdded FROM bachelors ")) {
     if($result->num_rows > 0) {
 		while($row = $result->fetch_object()) {
