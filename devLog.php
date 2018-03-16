@@ -21,6 +21,7 @@
 			<li><a href="404page.php">Testimonials</a></li>
 			<li><a href="merchandise.php">Merchandise</a></li>
 			<li><a href="devLog.php">Development Log</a></li>
+			<li><a href="secureSide.php">Secure Side</a></li>
         </ul>
 	</input>
     </div>
@@ -58,16 +59,17 @@
 		<li> Dynamic rearranging/resizing for mobiles, two cards wide on PC  </li>
 		<li> Secure side for me to delete profiles, and perhaps and ESP8266-based piece of hardware to take down the site as a party-piece  </li>
 		<li> Fix rotating of phone camera images, and consider resizing for loading speed </li>
-		<li> Avoid duplicating image names, perhaps append username on  </li>
+		<li class="tick"> Avoid duplicating image names, perhaps append username on  </li>
 		<li class="tick"> Add a store link in banner </li>
 		<li> Remove slight gap at bottom of bachelor card </li>
 		<li> Rank and remove empty profiles </li>
 		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
-		<li> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
+		<li class="tick"> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
 		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
 		<li> Improve the image upload button aesthetic in <i>becomeBachelor.php</i> and center the captcha on different screen sizes</li>
 		<li> Remove the leading text div once the quotes have concluded</li>
 		<li class="cross"> Give up on this pointless venture</li>
+		<li> Escape from SQL read error, have facility to change card style depending on what bachelor info can be read </i>
 	  <!--
 		<ul>
 		  <li class="cross">fourht</li>
@@ -79,6 +81,22 @@
 	  
 	</ul>  
 </div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">The Mending Wall</h2>
+	<p class="devLogDate">16/3/18</p>
+	<div id="clear"></div>
+	
+	<p>I tossed around a lot of oblique references as ideas for the title of this mini dev log, including but not limited to permutations on "we're going to build a wall that Mexico will pay for" and something about Gandalf and the Balrog, but they all received pretty frosty receptions. </p>
+	
+	<p>To cut to the chase, this segment deals will how to password-protect a particular webpage. Why am I doing this? Firstly, to learn how. Secondly, I would like the functionality to be able to change bachelor profile fields without access to phpMyAdmin, and more importantly without having to write custom php queries each time. Additionally, I'd like a 'kill' button on each profile, to be able to quickly take down a profile. In order to get this working, I followed the steps at: http://tools.dynamicdrive.com/password/. However, I believe it used a different hashing mechanism, so I obtained the password from http://www.htaccesstools.com/htpasswd-generator/. </p>
+	
+	<p>The idea is to generate a few new files, <i>.htaccess</i> which contains details of which file to password protect and where the username and password are stored, and <i>.htpasswd</i> which contains a hashed version of the password itself. The password will have to be entered each time the browser is reopened, and access to the secureSide cannot be obtained simply by typing in the address. So, job done. The only difficulty is the difference in addresses between my Apache server and the remote server, so I may have to make custom files for remote and local. Since I don't plan on adding much password protected functionality yet, this isn't a problem.</p>
+	
+	<p>Maybe this secureSide can input a function for me to be able to put up a text box on the main page as a banner. Things to think about. </p>
+	
+</div>
+
 
 <div id="devLogContainer">
 	<h2 class="devLogTitle">Deciding which profiles to display</h2>
