@@ -46,13 +46,20 @@ if(intval($responseKeys["success"]) !== 1) {
 	$email = mysqli_real_escape_string($link, $_REQUEST['email']);
 	$bio = mysqli_real_escape_string($link, $_REQUEST['bio']);
 	$display = 1; 
-	if ( basename($_FILES["imageUpload"]["name"]) == "") {
+	
+	if ( basename($_FILES["imageUpload"]["name"]) == "") { // if no image uploaded
 		$display = 0;
+	} else if (preg_match('/\.(jpe?g|png|gif)$/i', $_FILES["imageUpload"]["name"], $matches)) {
+		// great success. Make this check MIME type
+	} else {
+		header('Location: hackerRejection.php');
+		exit;
 	}
-
+	
 	// Timestamp image name
 	$target_dir = "uploads/";
-	$target_file = $target_dir . date('d-m-Y_H-i-s') . basename($_FILES["imageUpload"]["name"]);
+	$image = date('d-m-Y_H-i-s') . basename( $_FILES["imageUpload"]["name"]); // concatenate timestamp onto original image name
+	$target_file = $target_dir . $image;//date('d-m-Y_H-i-s') . basename($_FILES["imageUpload"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -62,7 +69,7 @@ if(intval($responseKeys["success"]) !== 1) {
 		echo "Sorry, there was an error uploading your file.";
 	}
 
-	$image = date('d-m-Y_H-i-s') . basename( $_FILES["imageUpload"]["name"]); // concatenate timestamp onto original image name
+	
 
 	// Attempt insert query execution
 	$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, display, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$display', '$image')";

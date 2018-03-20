@@ -23,12 +23,14 @@
  
  <div id="leadingText">
 	 <div align = "center">
-		<h1> 404 Page Not Found. </h1>
-		<p> I'm as annoyed by this as you are. </p>
+		<h1> Hackers aren't terribly welcome sorry. </h1>
+		<p> Have a lovely day! </p>
 		
 	</div>
 	<div align = "center">
-		<img src="images/handsomeCal_small.jpg" alt="handsomeCal_small" style="width:400px;height:auto;">
+		<video width="400" autoplay loop>
+			<source src="images/calSmile.mp4" type="video/mp4">
+		</video>
 	</div>
 </div>
 

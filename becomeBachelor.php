@@ -75,7 +75,7 @@
 	</li>
 	<li>
 		<label for="imageUpload">Image</label>
-		<input type="file" name="imageUpload">
+		<input type="file" accept=".jpg,.JPG,.jpeg,.JPEG,.png,.PNG,.bmp,.BMP" name="imageUpload">
 		<span>Upload an image of yourself or the profile won't be displayed</span>
 	</li>
 	<!--<div style="text-align:center">

@@ -84,6 +84,27 @@
 </div>
 
 <div id="devLogContainer">
+	<h2 class="devLogTitle">Colleagues</h2>
+	<p class="devLogDate">20/3/18</p>
+	<div id="clear"></div>
+	
+	<p>Colleagues are a lot like gremlins. You should never feed (or see them for that matter) after midnight. You shouldn't get them wet, although that shouldn't be especially difficult in a standard office environment. But the strongest similarity is their tendency to play havoc with whatever is important to you. In this case, my colleagues have been playing havoc with what is most important to me (sob): this website.</p>
+
+	<p>Features to implement.
+	<ul class="featureList">
+		<li> http://nullcandy.com/php-image-upload-security-how-not-to-do-it/</li>
+		<li> https://www.owasp.org/index.php/SQL_Injection_Prevention_Cheat_Sheet#MySQL_Escaping</li>
+		<li> http://php.net/manual/en/function.exif-imagetype.php</li>
+		<li> https://code.tutsplus.com/tutorials/why-you-should-be-using-phps-pdo-for-database-access--net-12059</li>
+		<li> sha1sum filenames</li>	
+	</ul>
+	</p>
+	
+	
+	
+</div>
+
+<div id="devLogContainer">
 	<h2 class="devLogTitle">The Mending Wall</h2>
 	<p class="devLogDate">16/3/18</p>
 	<div id="clear"></div>
