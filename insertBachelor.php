@@ -38,22 +38,45 @@ if(intval($responseKeys["success"]) !== 1) {
 	}
 	 
 	// Escape user inputs for security
-	$name = mysqli_real_escape_string($link, $_REQUEST['name']);
+	$name_dirty = mysqli_real_escape_string($link, $_REQUEST['name']);
 	$age = mysqli_real_escape_string($link, $_REQUEST['age']);
-	$degree = mysqli_real_escape_string($link, $_REQUEST['degree']);
-	$location = mysqli_real_escape_string($link, $_REQUEST['location']);
-	$mobileNumber = mysqli_real_escape_string($link, $_REQUEST['mobileNumber']);
-	$email = mysqli_real_escape_string($link, $_REQUEST['email']);
-	$bio = mysqli_real_escape_string($link, $_REQUEST['bio']);
+	$degree_dirty = mysqli_real_escape_string($link, $_REQUEST['degree']);
+	$location_dirty = mysqli_real_escape_string($link, $_REQUEST['location']);
+	$mobileNumber_dirty = mysqli_real_escape_string($link, $_REQUEST['mobileNumber']);
+	$email_dirty = mysqli_real_escape_string($link, $_REQUEST['email']);
+	$bio_dirty = mysqli_real_escape_string($link, $_REQUEST['bio']);
 	$display = 1; 
+	
+	
+	$php_injection_found = 0;
+	
+	// Look for HTML injection, and redirect if found
+	$tags_found = 0;
+	$name = strip_tags($name_dirty);
+	$tags_found += abs(strcmp($name, $name_dirty));
+	$degree = strip_tags($degree_dirty);
+	$tags_found += abs(strcmp($degree, $degree_dirty));
+	$location = strip_tags($location_dirty);
+	$tags_found += abs(strcmp($location, $location_dirty));
+	$mobileNumber = strip_tags($mobileNumber_dirty);
+	$tags_found += abs(strcmp($mobileNumber, $mobileNumber_dirty));
+	$email = strip_tags($email_dirty);
+	$tags_found += abs(strcmp($email, $email_dirty));
+	$bio = strip_tags($name_dirty);
+	$tags_found += abs(strcmp($bio, $bio_dirty));
+	//echo $tags_found;
+	
+	if ($tags_found != 0) {
+		$display = 0;
+	}
 	
 	if ( basename($_FILES["imageUpload"]["name"]) == "") { // if no image uploaded
 		$display = 0;
 	} else if (preg_match('/\.(jpe?g|png|gif)$/i', $_FILES["imageUpload"]["name"], $matches)) {
 		// great success. Make this check MIME type
 	} else {
-		header('Location: hackerRejection.php');
-		exit;
+		$php_injection_found = 1;
+		$display = 0;
 	}
 	
 	// Timestamp image name
@@ -72,7 +95,11 @@ if(intval($responseKeys["success"]) !== 1) {
 	
 
 	// Attempt insert query execution
-	$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, display, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$display', '$image')";
+	if ($tags_found) {
+		$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, display, image) VALUES ('$name_dirty', '$age', '$degree_dirty', '$location_dirty', '$mobileNumber_dirty', '$email_dirty', '$bio_dirty', '$display', '$image')";
+	} else {
+		$sql = "INSERT INTO bachelors (name, age, degree, location, mobileNumber, email, bio, display, image) VALUES ('$name', '$age', '$degree', '$location', '$mobileNumber', '$email', '$bio', '$display', '$image')";
+	}
 	//mysqli_query($link, $sql);
 
 	if(!mysqli_query($link, $sql)){
@@ -86,7 +113,10 @@ if(intval($responseKeys["success"]) !== 1) {
 	// close connection
 	mysqli_close($link);
 }
-
-header('Location: /');
+if ($tags_found || $php_injection_found) {
+	header('Location: hackerRejection.php');
+} else {
+	header('Location: /');
+}
 
 ?>

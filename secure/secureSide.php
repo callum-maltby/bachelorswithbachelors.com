@@ -91,7 +91,7 @@ if($result = $link->query("SELECT name,age,degree,location,mobileNumber,email,bi
 <?php 
 			list($width, $height) = getimagesize("../uploads/".$row->image."");
 			if ($width > 0.7*$height) { // Picture at top
-			echo "<img src='uploads/".$row->image."' / width=100%;opacity:1;height=auto;image-orientation: from-image>";
+			echo "<img src='../uploads/".$row->image."' / width=100%;opacity:1;height=auto;image-orientation: from-image>";
 ?>
 			<h2 align="center"> <?php echo $row->name; ?> <br><br> </h2>
 			<p> Age: <?php echo $row->age; ?></p>

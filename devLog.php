@@ -62,7 +62,7 @@
 		<li class="tick"> Avoid duplicating image names, perhaps append username on  </li>
 		<li class="tick"> Add a store link in banner </li>
 		<li> Remove slight gap at bottom of bachelor card </li>
-		<li> Rank and remove empty profiles </li>
+		<li class="tick"> Rank and remove empty profiles </li>
 		<li> Fix no-space text overflow in cards, mostly email addresses on the cards where the picture is displayed on left </li>
 		<li class="tick"> Prevent becomeBachelor page from zooming out, might be a matter of using the proforma from other pages as a guide, and otherwise fixing the form. devLog.php does this too now </li>
 		<li> Look at https://webdesign.tutsplus.com/articles/making-websites-location-aware-with-html5-geolocation--webdesign-10495 for making search results filter to around the users location. However, this starts getting creepy, if the core concept wasn't odd enough for you</li>
@@ -71,6 +71,8 @@
 		<li> Remove the leading text div once the quotes have concluded</li>
 		<li class="cross"> Give up on this pointless venture</li>
 		<li> Escape from SQL read error, have facility to change card style depending on what bachelor info can be read </i>
+		<li> Use php sessions to allow themes, ie. background to be removed </li>
+		<li> Not sure how, but generate a word cloud of most popular degrees or locations </li>
 	  <!--
 		<ul>
 		  <li class="cross">fourht</li>
@@ -81,6 +83,49 @@
 	  -->
 	  
 	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Quick Control</h2>
+	<p class="devLogDate">3/5/18</p>
+	<div id="clear"></div>
+	
+	<p>I finally made a start on getting functionality added the <i>secureSide.php</i>. I started off with a functionality to be able to enable and disable profile uploads. I intend to have a number of these flags, controllable by buttons and toggle switches as in https://www.w3schools.com/howto/howto_css_switch.asp. In order to keep them all together, I've decided to make a new SQL table with <i>parameter name</i> and <i>value</i> for all the required flags. The button callback is engaged via:</p>
+	
+	<i><xmp><form class="signupForm" action="/toggleUpload.php" method="post" enctype="multipart/form-data">
+	<ul>
+	<input type="submit" value="Toggle upload status">
+	</ul>
+</form>
+	</xmp></i>
+	
+	<p>A <i>toggleUpload.php</i> file contains the following code: </p>
+	
+	<i><xmp>$sql = "SELECT parameter, value FROM flags WHERE parameter='uploadState'";
+$result = mysqli_query($link, $sql);
+$row = $result->fetch_object();
+$flag_val = $row->value;
+$new_flag_val = intval(!$flag_val);
+$sql = "UPDATE flags SET value = $new_flag_val WHERE parameter='uploadState'";
+mysqli_query($link, $sql)
+	</xmp></i>
+	
+	<p>The button at present operates as a toggle: when pressed, the state flips. First, the current state is found, by fetching the object and the <i>value</i> field from that object. The value to reassign should be the integer-cast negation of the prior value. I'm sure that there are far, far cleaner ways to accomplish this, but despite the jankiness, it works just fine. </p>
+	
+	<p>Next is to make a similar button that prevents all profiles from being displayed on the home page. With this number of buttons, I should make a nice-looking panel to display all these buttons. But, I'll probably focus on making a nice GUI on the secure side to edit profile text. I'm noticing a slight bleed-over of camel and snake cases, up until now I used camel for <i>HTML</i> and snake for <i>php</i>, I'll do a big cleanup of all these later on. </p>
+	
+	<p>Nasty protection against html tagging wasn't too hard: repeats of the following code are used. If any tags are found in the form input, the <i>tags_found</i> counter is incremented and used later on. At the moment, the <i>$display</i> field is set to <i>0</i> when 'hacking' is detected, but the entries are still put into the database for analysis of incident attack vectors.</p>
+	
+	<i><xmp>
+$name_dirty = mysqli_real_escape_string($link, $_REQUEST['name']);
+$tags_found = 0;
+$name = strip_tags($name_dirty);
+$tags_found += abs(strcmp($name, $name_dirty));
+</xmp></i>
+
+	<p>Standard logic in <i>php</i> can be used to determine whether a redirection is required: if is is the <i>header()</i> function executes it:
+	
+	<i><xmp>header('Location: hackerRejection.php');</xmp></i>
 </div>
 
 <div id="devLogContainer">
@@ -99,9 +144,7 @@
 		<li> sha1sum filenames</li>	
 	</ul>
 	</p>
-	
-	
-	
+
 </div>
 
 <div id="devLogContainer">

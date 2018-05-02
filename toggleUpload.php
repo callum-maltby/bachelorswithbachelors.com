@@ -27,7 +27,6 @@
 	$sql = "SELECT parameter, value FROM flags WHERE parameter='uploadState'";
 	$result = mysqli_query($link, $sql);
 	$row = $result->fetch_object();
-	
 	$flag_val = $row->value;
 	echo $flag_val;
 	
