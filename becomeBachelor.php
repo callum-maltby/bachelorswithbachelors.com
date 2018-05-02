@@ -25,6 +25,20 @@
     </div>
  </div>
 
+<?php
+$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
+// Check connection
+if($link === false) {
+	die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
+$sql = "SELECT parameter, value FROM flags WHERE parameter='uploadState'";
+$result = mysqli_query($link, $sql);
+$row = $result->fetch_object();
+$uploadState = $row->value;
+if ($uploadState == 1) {
+?>
+
  <div id="leadingText">
 	<h1> So you want to be a bachelor! </h1>
 	<p> It's actually a pretty simple process:</p><p class="fastQuotes">#1: Go to uni.<p>
@@ -87,6 +101,23 @@
 	</ul>
 </form>
 </div>
+
+<?php
+} else {
+?>
+ <div id="leadingText">
+	 <div align = "center">
+		<h1> Profile uploads have been temporarily disabled. </h1>
+		<p> I'm as annoyed by this as you are. </p>
+		
+	</div>
+	<div align = "center">
+		<img src="images/handsomeCal_small.jpg" alt="handsomeCal_small" style="width:400px;height:auto;">
+	</div>
+</div>
+<?php
+}
+?>
 
  </body>
  </html>

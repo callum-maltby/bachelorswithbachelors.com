@@ -70,7 +70,7 @@ if($result = $link->query("SELECT title, message, display FROM messages ")) {
 			<h2 align="center"> <?php echo $row->title; ?> <br><br> </h2>
 			<p> <?php echo $row->message; ?></p>
 			<form align="right" action="removeMessage.php" method="post" enctype="multipart/form-data">
-			<input type="submit" value="Remove Message">
+			<input type="submit" value="Remove Messages">
 			
 		</div>
 
