@@ -26,11 +26,11 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
 $responseKeys = json_decode($response,true);
 
-if(intval($responseKeys["success"]) !== 1) {
-    echo '<div id="leadingText"><h2>Spammers are not especially welcome sorry</h2></div>';
-} else {
+//if(intval($responseKeys["success"]) !== 1) { // remove comment once recaptcha fixed
+ //   echo '<div id="leadingText"><h2>Spammers are not especially welcome sorry</h2></div>'; // remove comment once recaptcha fixed
+//} else { // remove comment once recaptcha fixed
 	// Action taken on successful captcha challenge
-	$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
+	$link = mysqli_connect("localhost", "bache895_callum", "sTart98wow$", "bache895_bachelorswithbachelors");
 
 	// Check connection
 	if($link === false) {
@@ -62,21 +62,26 @@ if(intval($responseKeys["success"]) !== 1) {
 	$tags_found += abs(strcmp($mobileNumber, $mobileNumber_dirty));
 	$email = strip_tags($email_dirty);
 	$tags_found += abs(strcmp($email, $email_dirty));
-	$bio = strip_tags($name_dirty);
+	$bio = strip_tags($bio_dirty);
 	$tags_found += abs(strcmp($bio, $bio_dirty));
-	//echo $tags_found;
 	
 	if ($tags_found != 0) {
 		$display = 0;
+		$bio = "html tags found" . $bio;
+		$bio_dirty = "html tags found" . $bio_dirty;
 	}
 	
 	if ( basename($_FILES["imageUpload"]["name"]) == "") { // if no image uploaded
 		$display = 0;
+		$bio = "no image present" . $bio;
+		$bio_dirty = "no image present" . $bio_dirty;
 	} else if (preg_match('/\.(jpe?g|png|gif)$/i', $_FILES["imageUpload"]["name"], $matches)) {
 		// great success. Make this check MIME type
 	} else {
 		$php_injection_found = 1;
 		$display = 0;
+		$bio = "php injection found" . $bio;
+		$bio_dirty = "php injection found" . $bio_dirty;
 	}
 	
 	// Timestamp image name
@@ -112,7 +117,10 @@ if(intval($responseKeys["success"]) !== 1) {
 	 
 	// close connection
 	mysqli_close($link);
-}
+//} // remove comment once recaptcha fixed
+echo $tags_found;
+echo $php_injection_found;
+
 if ($tags_found || $php_injection_found) {
 	header('Location: hackerRejection.php');
 } else {

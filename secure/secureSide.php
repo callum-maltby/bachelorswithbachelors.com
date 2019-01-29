@@ -72,7 +72,8 @@
 <?php
 
 // Check connection
-$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
+$link = mysqli_connect("localhost", "bache895_callum", "sTart98wow$", "bache895_bachelorswithbachelors");
+
 if ($link == false) {
 	echo("ERROR: Could not connect. " . mysqli_connect_error());
 }

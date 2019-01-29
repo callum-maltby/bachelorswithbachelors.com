@@ -26,7 +26,7 @@
  </div>
 
 <?php
-$link = mysqli_connect("localhost", "p7iyrz4kr3t4", "sTart98wow$", "bachelorswithbachelors");
+$link = mysqli_connect("localhost", "bache895_callum", "sTart98wow$", "bache895_bachelorswithbachelors");
 // Check connection
 if($link === false) {
 	die("ERROR: Could not connect. " . mysqli_connect_error());

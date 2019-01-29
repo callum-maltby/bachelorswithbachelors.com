@@ -45,6 +45,8 @@
 	<p> There is a lot of work to get this thing up and running: </p>
 	
 	<ul class="featureList">
+		<li> Remove white space at bottom of merchandise page </li>
+		<li> Include a suggestion box </li>
 		<li class="tick"> Start a development log</li>
 		<li class="tick"> Fade in monologue with jquery </li>
 		<li class="tick"> Setup Git, no matter how much I don't want to  </li>
@@ -73,6 +75,7 @@
 		<li> Escape from SQL read error, have facility to change card style depending on what bachelor info can be read </i>
 		<li> Use php sessions to allow themes, ie. background to be removed </li>
 		<li> Not sure how, but generate a word cloud of most popular degrees or locations </li>
+		<li> Set up secure side for Hostpapa, and make it better </li>
 	  <!--
 		<ul>
 		  <li class="cross">fourht</li>
@@ -83,6 +86,27 @@
 	  -->
 	  
 	</ul>  
+</div>
+
+<div id="devLogContainer">
+	<h2 class="devLogTitle">Back to It</h2>
+	<p class="devLogDate">17/1/19</p>
+	<div id="clear"></div>
+	
+	<p>The objective this evening is to get bachelorswithbachelors.com back to where it was. This meant navigating hosts, registrars, FTP access, SQL user accounts and privileges. The primary motivator for this was the post-honeymoon rate ramp to $505.85 for two years' hosting and domain registry from GoDaddy. I switched to Hostpapa, which seems worse, but is far cheaper. I'm led to believe that multiple sites can be hosted for no additional cost, so I'll look into callummaltby.com and fireflydesign.com.</p>
+	
+	<p>Establishing an updated FTP connection allowed me to Filezilla files up. I followed the instruction contained in https://www.hostpapa.com/knowledgebase/use-filezilla-transfer-files-via-ftp/. The SQL breakdown is a single database, with subordinate tables for <i>bachelors</i>, <i>flags</i> and <i>messages</i>. To share code between localhost dev and the remote hosting, I made my local username and password match the remote. In the interests of mediocre security, I won't share those here. I should put the login in a file that isn't in public www, but this will be later. I also should get my version control better, for this and for additional projects. </p>
+	
+	<p>I had difficulty getting my localhost to recognise the database, but that was because I appended a .com to the table name by mistake. On the remote site, there are a few cards without pictures, since I pulled the database without pulling down the up-to-date <i>uploads</i> folder.
+
+	<p>Features to implement.
+	<ul class="featureList">
+		<li> Adding images to new</li>
+		<li> Secure side</li>
+		<li> Re-enable recaptcha, fails without merit uploading Al Pacino </li>
+	</ul>
+	</p>
+
 </div>
 
 <div id="devLogContainer">
